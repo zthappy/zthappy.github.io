@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>二维数组相关 | Moon of Mars</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="二维数组 二维数组是指一维数组的每个元素也是一个数组。同理可以得出三维数组，多维数组的形式。 二维数组的生成1.直接定义，适用于已知的并且比较简单的二维数组    var arr = [[1,2,3],[4,5,6]];2.循环定义    var arr = [];    for(var i = 0; i &amp;lt; n ; i++){        arr[i] = [];        for(">
+<meta name="keywords" content="二维数组与一维数组的转换，二维数组的螺旋输出">
+<meta property="og:type" content="article">
+<meta property="og:title" content="二维数组相关">
+<meta property="og:url" content="http://yoursite.com/2017/07/13/twodivarray/index.html">
+<meta property="og:site_name" content="Moon of Mars">
+<meta property="og:description" content="二维数组 二维数组是指一维数组的每个元素也是一个数组。同理可以得出三维数组，多维数组的形式。 二维数组的生成1.直接定义，适用于已知的并且比较简单的二维数组    var arr = [[1,2,3],[4,5,6]];2.循环定义    var arr = [];    for(var i = 0; i &amp;lt; n ; i++){        arr[i] = [];        for(">
+<meta property="og:updated_time" content="2017-07-14T02:39:41.358Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="二维数组相关">
+<meta name="twitter:description" content="二维数组 二维数组是指一维数组的每个元素也是一个数组。同理可以得出三维数组，多维数组的形式。 二维数组的生成1.直接定义，适用于已知的并且比较简单的二维数组    var arr = [[1,2,3],[4,5,6]];2.循环定义    var arr = [];    for(var i = 0; i &amp;lt; n ; i++){        arr[i] = [];        for(">
+  
+    <link rel="alternate" href="/atom.xml" title="Moon of Mars" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Moon of Mars</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">rookie of web Engineer</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-twodivarray" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/07/13/twodivarray/" class="article-date">
+  <time datetime="2017-07-13T11:13:21.000Z" itemprop="datePublished">2017-07-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      二维数组相关
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="二维数组"><a href="#二维数组" class="headerlink" title="二维数组"></a>二维数组</h2><p> 二维数组是指一维数组的每个元素也是一个数组。同理可以得出三维数组，多维数组的形式。</p>
+<h3 id="二维数组的生成"><a href="#二维数组的生成" class="headerlink" title="二维数组的生成"></a>二维数组的生成</h3><p>1.直接定义，适用于已知的并且比较简单的二维数组<br>    <pre>var arr = [[1,2,3],[4,5,6]];</pre><br>2.循环定义<br>    <pre>var arr = [];<br>    for(var i = 0; i &lt; n ; i++){<br>        arr[i] = [];<br>        for(var j = 0;j<m;j++){ arr[i][j]="value;" }="" <="" pre=""><br>其中，n,m分别代表数组的宽度和深度。<br>遍历也是如此遍历</m;j++){></pre></p>
+<h3 id="二维数组与一维数组的相互转换"><a href="#二维数组与一维数组的相互转换" class="headerlink" title="二维数组与一维数组的相互转换"></a>二维数组与一维数组的相互转换</h3><h5 id="二维-gt-一维"><a href="#二维-gt-一维" class="headerlink" title="二维 =&gt; 一维"></a>二维 =&gt; 一维</h5><pre><code>function toArr(arr){
+    var arr1 = [];
+    for(var i = 0;i&lt;arr.length;i++) {
+        for (var j = 0; j &lt; arr[i].length; j++) {
+            arr1.push(arr[i][j]);
+        }
+    }
+    console.log(arr);
+    console.log(arr1);
+    return arr1;
+}
+</code></pre><h5 id="一维-gt-二维"><a href="#一维-gt-二维" class="headerlink" title="一维 =&gt; 二维"></a>一维 =&gt; 二维</h5><pre><code>function toMatrix(i,j,arr){
+    var arr1 = [];
+    for(var k = 0;k&lt;i;k++){
+        arr1[k] = new Array();
+        for(var t = 0;t&lt;j;t++) {
+            arr1[k][t] = arr[k*i+t];
+        }
+    }
+    console.log(arr1);
+    return arr1;
+}
+</code></pre><p>二维数组对应一维数组的对应关系是 a[i][j] = b[i*arr[0].length+j];</p>
+<h3 id="二维数组的螺旋遍历"><a href="#二维数组的螺旋遍历" class="headerlink" title="二维数组的螺旋遍历"></a>二维数组的螺旋遍历</h3><pre><code>function helix(arr){
+    var start_x = 0,end_x = arr.length-1;
+    var start_y = 0,end_y = arr[0].length - 1;
+    console.log(start_x+&quot;,&quot;+end_x+&quot;,&quot;+start_y+&quot;,&quot;+end_y)
+    while(start_x &lt;= end_x &amp;&amp; start_y&lt;= end_y) {
+        var i;
+        var str1=&quot;&quot;,str2=&quot;&quot;,str3=&quot;&quot;,str4=&quot;&quot;;
+        for(i=start_y;i&lt;=end_y;i++){
+            str1 += arr[start_x][i]+&quot; &quot;;
+        }
+        console.log(str1);
+        start_x++;
+        for(i=start_x;i&lt;=end_x;i++){
+            str2 += arr[i][end_y]+&quot; &quot;
+        }
+        console.log(str2);
+        end_y--;
+        for(i=end_y;i&gt;=start_y;i--){
+            str3 += arr[end_x][i]+&quot; &quot;;
+        }
+        console.log(str3);
+        end_x--;
+        for(i=end_x;i&gt;=start_x;i--){
+            str4 += arr[i][start_y]+&quot; &quot;;
+        }
+        console.log(str4);
+        start_y++;
+    }
+}
+设计思路，设置一个x方向的头和尾，y方向的头和尾，每当走到尾，则换方向。
+</code></pre><hr>
+<p>代码地址：<a href="https://github.com/zthappy/Javascript/blob/master/Array/twodiarray.html" target="_blank" rel="external">https://github.com/zthappy/Javascript/blob/master/Array/twodiarray.html</a><br>运行：<a href="http://htmlpreview.github.io/?https://github.com/zthappy/Javascript/blob/master/Array/twodiarray.html" target="_blank" rel="external">http://htmlpreview.github.io/?https://github.com/zthappy/Javascript/blob/master/Array/twodiarray.html</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/07/13/twodivarray/" data-id="cj52ds68500010ccbiq194d4p" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/二维数组与一维数组的转换，二维数组的螺旋输出/">二维数组与一维数组的转换，二维数组的螺旋输出</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/07/12/js/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Js 数组循环比较</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/二维数组与一维数组的转换，二维数组的螺旋输出/">二维数组与一维数组的转换，二维数组的螺旋输出</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/二维数组与一维数组的转换，二维数组的螺旋输出/" style="font-size: 10px;">二维数组与一维数组的转换，二维数组的螺旋输出</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/07/13/twodivarray/">二维数组相关</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/12/js/">Js 数组循环比较</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/12/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Ting Zhai<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
