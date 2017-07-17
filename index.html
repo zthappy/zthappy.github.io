@@ -54,7 +54,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -64,6 +64,57 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-closure" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/07/17/closure/" class="article-date">
+  <time datetime="2017-07-17T07:15:06.000Z" itemprop="datePublished">2017-07-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/17/closure/">闭包</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="闭包的含义"><a href="#闭包的含义" class="headerlink" title="闭包的含义"></a>闭包的含义</h2><p>闭包是指有权利访问另一个函数作用域中的变量</p>
+<h3 id="最常见的闭包"><a href="#最常见的闭包" class="headerlink" title="最常见的闭包"></a>最常见的闭包</h3><p>1.循环里面的闭包<br>    for(var i = 0; i &lt; 10; i++) {</p>
+<pre><code>    setTimeout(function() {
+        console.log(i);
+    }, 3000);
+
+}
+</code></pre><p>运行结果是：10个10;<br>显然这不是我们想要的结果，如何解决<br>第一种方法：</p>
+<p><pre><br>    function a(i) {<br>        setTimeout(function() {<br>            console.log(i);<br>        }, 1000);<br>    }<br>    for(var i = 0; i &lt; 10; i++) {<br>        a(i)<br>    };<br></pre><br>第二种方法:</p>
+<p><pre><br>    for(var i = 0; i &lt; 10; i++) {<br>        (function(e) {<br>            setTimeout(function() {<br>                console.log(e);<br>            }, 3000);<br>        })(i);<br>    }<br></pre><br>第三种方法：</p>
+<p><pre><br>    var i = 0;<br>    for(var j = 0;j &lt; 10;j++) {<br>      setTimeout(function(){console.log(i);i++;},1000*j);<br>    }<br></pre><br>第四种方法：</p>
+<p><pre><br>    for(let i = 0; i &lt; 10; i++) {<br>       setTimeout(function() {<br>            console.log(i);<br>        }, 3000);<br>    }<br></pre><br>    let解析：将var改成了es6的let，一切问题都解决了。<br>    var存在闭包问题的原因是：es6之前，只有函数才有作用域的概念，其他无块级作用域这个概念，但是es6有了。<br>for循环结束后i=10,我们内部的函数是只能读取到 i = 10这个值的。因为保留在父级函数的活动对象中的i是父级函数执行完毕后i的值，也就是10。<br>所以方法二为了取到for循环中的每个i值，就需要再建立一个闭包函数，在第一层闭包中我们传入一个参数e，<br>在第二个闭包也就是第二层闭包中我们引用这个参数，而这个参数我们在自执行的时候把i传递进去，<br>也就是说，这个内部的闭包函数保留了第一层闭包函数活动对象中的e，而这个e是for在循环时所传递进来的每一个i的值。<br>let创建了块级作用域，并且执行完之后，i会被回收。</p>
+<p>####let的几个特性：<br>不存在变量提升问题;<br>不可以重复声明，包括和var一起声明;</p>
+<p>方法一的解释和let一样，因为es5中函数是有自己的作用域的。</p>
+<p>参考：<a href="https://johanzhu.github.io/2016/09/26/ten/" target="_blank" rel="external">https://johanzhu.github.io/2016/09/26/ten/</a><br>代码地址：<a href="https://github.com/zthappy/Javascript/blob/master/Closure/closure.html" target="_blank" rel="external">https://github.com/zthappy/Javascript/blob/master/Closure/closure.html</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/07/17/closure/" data-id="cj57tfsub0000egcbcebr9vme" class="article-share-link">Delen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-twodivarray" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -148,7 +199,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/13/twodivarray/" data-id="cj52ds68500010ccbiq194d4p" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/13/twodivarray/" data-id="cj57tfsuq0001egcbi6prc8dt" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/二维数组与一维数组的转换，二维数组的螺旋输出/">二维数组与一维数组的转换，二维数组的螺旋输出</a></li></ul>
@@ -207,7 +258,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/12/js/" data-id="cj52ds68800020ccbxtip3j3w" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/12/js/" data-id="cj57tft030005egcbfd98y5lb" class="article-share-link">Delen</a>
       
       
     </footer>
@@ -252,7 +303,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/12/hello-world/" data-id="cj52ds68000000ccbq37m8za3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/12/hello-world/" data-id="cj57tfsut0002egcbp2lbxpms" class="article-share-link">Delen</a>
       
       
     </footer>
@@ -272,7 +323,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
+    <h3 class="widget-title">Labels</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/二维数组与一维数组的转换，二维数组的螺旋输出/">二维数组与一维数组的转换，二维数组的螺旋输出</a></li></ul>
     </div>
@@ -291,7 +342,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archieven</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li></ul>
     </div>
@@ -301,9 +352,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Recente berichten</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/07/17/closure/">闭包</a>
+          </li>
         
           <li>
             <a href="/2017/07/13/twodivarray/">二维数组相关</a>
