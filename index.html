@@ -65,6 +65,73 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-igoration" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/07/24/igoration/" class="article-date">
+  <time datetime="2017-07-24T08:32:23.000Z" itemprop="datePublished">2017-07-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/24/igoration/">igoration</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="js忽略的一些细节"><a href="#js忽略的一些细节" class="headerlink" title="js忽略的一些细节"></a>js忽略的一些细节</h2><ol>
+<li>A.style.left<br>html如此</li>
+</ol>
+<pre>
+    &lt;div class="smallkedu" id="move"$gt;1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9&lt;/div&gt;
+</pre>
+css如此
+<pre>
+    #move {
+        background-color: #fff;
+        height: 40px;
+        width: 2080px;
+        position: absolute;
+        bottom:5px;
+        left:0;
+    }
+</pre>
+毫无毛病，我现在想要在js种获取css的某个值，js如此
+<pre>
+    var movediv = document.getElementById("move");
+    var x = movediv.style.left;
+    console.log(x);
+</pre>
+也毫无毛病，但是控制台就是打印不出left值；
+我设置 movediv.style.backgroundColor = #fff
+实现了颜色变化，所以说明我的语法没有问题。
+上网搜索了很久，终于找到答案：
+ A.style.left 只针对行内样式;
+ 所以将 html改成以下方式即可
+ <pre>
+    &lt;div class="smallkedu" id="move" style="left:0"&gt;1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9&lt;/div&gt;
+ </pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/07/24/igoration/" data-id="cj5hwrz2l0000yccbz1khsz3e" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-bootstraptable" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/07/17/bootstraptable/" class="article-date">
@@ -144,10 +211,14 @@ js中
      cardView: false, //是否显示详细视图
      detailView: false, //是否显示父子表
 </pre>
+
+
+<p>其他再补充</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/17/bootstraptable/" data-id="cj583tb6j00001scbm6qm23ft" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/17/bootstraptable/" data-id="cj5hwrz2q0001yccbt5dfz3pl" class="article-share-link">Share</a>
       
       
     </footer>
@@ -198,7 +269,7 @@ js中
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/17/closure/" data-id="cj583tb6n00011scbgmkp8513" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/17/closure/" data-id="cj5hwrz620007yccbqj040s09" class="article-share-link">Share</a>
       
       
     </footer>
@@ -291,7 +362,7 @@ js中
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/13/twodivarray/" data-id="cj583tb6t00041scbo57baal5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/13/twodivarray/" data-id="cj5hwrz2u0003yccbvly67dl0" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/二维数组与一维数组的转换，二维数组的螺旋输出/">二维数组与一维数组的转换，二维数组的螺旋输出</a></li></ul>
@@ -350,7 +421,7 @@ js中
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/12/js/" data-id="cj583tb6s00031scbws81ewbu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/12/js/" data-id="cj5hwrz530006yccbuptwfvn8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -395,7 +466,7 @@ js中
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/12/hello-world/" data-id="cj583tb6q00021scbiqdmsi5q" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/12/hello-world/" data-id="cj5hwrz2s0002yccbyi2br2gt" class="article-share-link">Share</a>
       
       
     </footer>
@@ -449,6 +520,10 @@ js中
       <ul>
         
           <li>
+            <a href="/2017/07/24/igoration/">igoration</a>
+          </li>
+        
+          <li>
             <a href="/2017/07/17/bootstraptable/">bootstraptable使用总结</a>
           </li>
         
@@ -462,10 +537,6 @@ js中
         
           <li>
             <a href="/2017/07/12/js/">Js 数组循环比较</a>
-          </li>
-        
-          <li>
-            <a href="/2017/07/12/hello-world/">Hello World</a>
           </li>
         
       </ul>
