@@ -65,6 +65,48 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-viewport" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/07/25/viewport/" class="article-date">
+  <time datetime="2017-07-25T07:22:07.000Z" itemprop="datePublished">2017-07-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/25/viewport/">关于viewport</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="什么是viewport"><a href="#什么是viewport" class="headerlink" title="什么是viewport"></a>什么是viewport</h3><p>viewport 是用户网页的可视区域。</p>
+<h3 id="viewport-meta-标签"><a href="#viewport-meta-标签" class="headerlink" title="viewport meta 标签"></a>viewport meta 标签</h3><p><pre>&lt;meta name=”viewport” content=”width=device-width, initial-scale=1.0”&gt;</pre><br>width：控制 viewport 的大小，可以指定的一个值，如果 600，或者特殊的值，如 device-width 为设备的宽度（单位为缩放为 100% 时的 CSS 的像素）。<br>height：和 width 相对应，指定高度。<br>initial-scale：初始缩放比例，也即是当页面第一次 load 的时候缩放比例。<br>maximum-scale：允许用户缩放到的最大比例。<br>minimum-scale：允许用户缩放到的最小比例。<br>user-scalable：用户是否可以手动缩放。</p>
+<h3 id="使用viewport适配屏幕"><a href="#使用viewport适配屏幕" class="headerlink" title="使用viewport适配屏幕"></a>使用viewport适配屏幕</h3><p>移动端适配的方法：<br>1.高度固定，宽度自适应<br>2.宽度固定，使用viewport缩放<br>3.宽度rem，viewport缩放</p>
+<h4 id="高度固定，宽度自适应"><a href="#高度固定，宽度自适应" class="headerlink" title="高度固定，宽度自适应"></a>高度固定，宽度自适应</h4><p><pre>&lt;meta name=”viewport” content=”width=device-width,initial-scale=1”&gt;</pre><br>如此设置之后，高度固定，宽度用百分比、定值或者flex都可以。</p>
+<h4 id="宽度固定，使用viewport缩放"><a href="#宽度固定，使用viewport缩放" class="headerlink" title="宽度固定，使用viewport缩放"></a>宽度固定，使用viewport缩放</h4><p><pre>&lt;meta name=”viewport” content=”width=640,initial-scale=0.5,maximum-scale=0.5,minimum-scale=0.5,user-scalable=no”&gt;</pre><br>width=640可以换成任意数值，viewport会根据不同屏幕缩放</p>
+<h4 id="宽度rem，viewport缩放"><a href="#宽度rem，viewport缩放" class="headerlink" title="宽度rem，viewport缩放"></a>宽度rem，viewport缩放</h4><p>根据屏幕宽度设定 rem 值，需要适配的元素都使用 rem 为单位，不需要适配的元素还是使用 px 为单位。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/07/25/viewport/" data-id="cj5jc70nh00026kcbgsxqzm6r" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-igoration" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/07/24/igoration/" class="article-date">
@@ -120,7 +162,7 @@ css如此
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/24/igoration/" data-id="cj5hx2wg80002kocbyjg3y3d0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/24/igoration/" data-id="cj5jc70nf00016kcbyph2p42a" class="article-share-link">Share</a>
       
       
     </footer>
@@ -216,7 +258,7 @@ js中
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/17/bootstraptable/" data-id="cj5hx2wge0005kocbbr7vsgcw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/17/bootstraptable/" data-id="cj5jc70na00006kcb13m55y4n" class="article-share-link">Share</a>
       
       
     </footer>
@@ -267,7 +309,7 @@ js中
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/17/closure/" data-id="cj5hx2wgb0003kocbc40y0mj4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/17/closure/" data-id="cj5jc70oc00086kcb40rvzmp7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -360,7 +402,7 @@ js中
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/13/twodivarray/" data-id="cj5hx2wgc0004kocbg6ra4e86" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/13/twodivarray/" data-id="cj5jc70nt00046kcbl6c5gzt7" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/二维数组与一维数组的转换，二维数组的螺旋输出/">二维数组与一维数组的转换，二维数组的螺旋输出</a></li></ul>
@@ -419,7 +461,7 @@ js中
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/12/js/" data-id="cj5hx2wg50001kocbv78vqv2g" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/12/js/" data-id="cj5jc70nv00056kcbp6ovx6p6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -464,7 +506,7 @@ js中
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/12/hello-world/" data-id="cj5hx2wfz0000kocbiiyokuc9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/12/hello-world/" data-id="cj5jc70nk00036kcbtlrr3hob" class="article-share-link">Share</a>
       
       
     </footer>
@@ -518,6 +560,10 @@ js中
       <ul>
         
           <li>
+            <a href="/2017/07/25/viewport/">关于viewport</a>
+          </li>
+        
+          <li>
             <a href="/2017/07/24/igoration/">js忽略的一些细节</a>
           </li>
         
@@ -531,10 +577,6 @@ js中
         
           <li>
             <a href="/2017/07/13/twodivarray/">二维数组相关</a>
-          </li>
-        
-          <li>
-            <a href="/2017/07/12/js/">Js 数组循环比较</a>
           </li>
         
       </ul>

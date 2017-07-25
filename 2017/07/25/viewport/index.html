@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>js忽略的一些细节 | Moon of Mars</title>
+  <title>关于viewport | Moon of Mars</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.A.style.lefthtml如此      &amp;lt;div class=&quot;smallkedu&quot; id=&quot;move&quot;$gt;1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9&amp;lt;/div&amp;gt;  css如此      #move {         background-color: #fff;         height: 4">
+  <meta name="description" content="什么是viewportviewport 是用户网页的可视区域。 viewport meta 标签&amp;lt;meta name=”viewport” content=”width=device-width, initial-scale=1.0”&amp;gt;width：控制 viewport 的大小，可以指定的一个值，如果 600，或者特殊的值，如 device-width 为设备的宽度（单位为缩放为 10">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js忽略的一些细节">
-<meta property="og:url" content="http://yoursite.com/2017/07/24/igoration/index.html">
+<meta property="og:title" content="关于viewport">
+<meta property="og:url" content="http://yoursite.com/2017/07/25/viewport/index.html">
 <meta property="og:site_name" content="Moon of Mars">
-<meta property="og:description" content="1.A.style.lefthtml如此      &amp;lt;div class=&quot;smallkedu&quot; id=&quot;move&quot;$gt;1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9&amp;lt;/div&amp;gt;  css如此      #move {         background-color: #fff;         height: 4">
-<meta property="og:updated_time" content="2017-07-24T08:55:11.596Z">
+<meta property="og:description" content="什么是viewportviewport 是用户网页的可视区域。 viewport meta 标签&amp;lt;meta name=”viewport” content=”width=device-width, initial-scale=1.0”&amp;gt;width：控制 viewport 的大小，可以指定的一个值，如果 600，或者特殊的值，如 device-width 为设备的宽度（单位为缩放为 10">
+<meta property="og:updated_time" content="2017-07-25T08:41:55.136Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="js忽略的一些细节">
-<meta name="twitter:description" content="1.A.style.lefthtml如此      &amp;lt;div class=&quot;smallkedu&quot; id=&quot;move&quot;$gt;1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9&amp;lt;/div&amp;gt;  css如此      #move {         background-color: #fff;         height: 4">
+<meta name="twitter:title" content="关于viewport">
+<meta name="twitter:description" content="什么是viewportviewport 是用户网页的可视区域。 viewport meta 标签&amp;lt;meta name=”viewport” content=”width=device-width, initial-scale=1.0”&amp;gt;width：控制 viewport 的大小，可以指定的一个值，如果 600，或者特殊的值，如 device-width 为设备的宽度（单位为缩放为 10">
   
     <link rel="alternate" href="/atom.xml" title="Moon of Mars" type="application/atom+xml">
   
@@ -67,10 +67,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-igoration" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-viewport" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/07/24/igoration/" class="article-date">
-  <time datetime="2017-07-24T08:32:23.000Z" itemprop="datePublished">2017-07-24</time>
+    <a href="/2017/07/25/viewport/" class="article-date">
+  <time datetime="2017-07-25T07:22:07.000Z" itemprop="datePublished">2017-07-25</time>
 </a>
     
   </div>
@@ -81,7 +81,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      js忽略的一些细节
+      关于viewport
     </h1>
   
 
@@ -89,40 +89,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-A-style-left"><a href="#1-A-style-left" class="headerlink" title="1.A.style.left"></a>1.A.style.left</h2><p>html如此</p>
-<pre>
-    &lt;div class="smallkedu" id="move"$gt;1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9&lt;/div&gt;
-</pre>
-css如此
-<pre>
-    #move {
-        background-color: #fff;
-        height: 40px;
-        width: 2080px;
-        position: absolute;
-        bottom:5px;
-        left:0;
-    }
-</pre>
-毫无毛病，我现在想要在js种获取css的某个值，js如此
-<pre>
-    var movediv = document.getElementById("move");
-    var x = movediv.style.left;
-    console.log(x);
-</pre>
-也毫无毛病，但是控制台就是打印不出left值；
-我设置 movediv.style.backgroundColor = #fff
-实现了颜色变化，所以说明我的语法没有问题。
-上网搜索了很久，终于找到答案：
- A.style.left 只针对行内样式;
- 所以将 html改成以下方式即可
- <pre>
-    &lt;div class="smallkedu" id="move" style="left:0"&gt;1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9&lt;/div&gt;
- </pre>
+        <h3 id="什么是viewport"><a href="#什么是viewport" class="headerlink" title="什么是viewport"></a>什么是viewport</h3><p>viewport 是用户网页的可视区域。</p>
+<h3 id="viewport-meta-标签"><a href="#viewport-meta-标签" class="headerlink" title="viewport meta 标签"></a>viewport meta 标签</h3><p><pre>&lt;meta name=”viewport” content=”width=device-width, initial-scale=1.0”&gt;</pre><br>width：控制 viewport 的大小，可以指定的一个值，如果 600，或者特殊的值，如 device-width 为设备的宽度（单位为缩放为 100% 时的 CSS 的像素）。<br>height：和 width 相对应，指定高度。<br>initial-scale：初始缩放比例，也即是当页面第一次 load 的时候缩放比例。<br>maximum-scale：允许用户缩放到的最大比例。<br>minimum-scale：允许用户缩放到的最小比例。<br>user-scalable：用户是否可以手动缩放。</p>
+<h3 id="使用viewport适配屏幕"><a href="#使用viewport适配屏幕" class="headerlink" title="使用viewport适配屏幕"></a>使用viewport适配屏幕</h3><p>移动端适配的方法：<br>1.高度固定，宽度自适应<br>2.宽度固定，使用viewport缩放<br>3.宽度rem，viewport缩放</p>
+<h4 id="高度固定，宽度自适应"><a href="#高度固定，宽度自适应" class="headerlink" title="高度固定，宽度自适应"></a>高度固定，宽度自适应</h4><p><pre>&lt;meta name=”viewport” content=”width=device-width,initial-scale=1”&gt;</pre><br>如此设置之后，高度固定，宽度用百分比、定值或者flex都可以。</p>
+<h4 id="宽度固定，使用viewport缩放"><a href="#宽度固定，使用viewport缩放" class="headerlink" title="宽度固定，使用viewport缩放"></a>宽度固定，使用viewport缩放</h4><p><pre>&lt;meta name=”viewport” content=”width=640,initial-scale=0.5,maximum-scale=0.5,minimum-scale=0.5,user-scalable=no”&gt;</pre><br>width=640可以换成任意数值，viewport会根据不同屏幕缩放</p>
+<h4 id="宽度rem，viewport缩放"><a href="#宽度rem，viewport缩放" class="headerlink" title="宽度rem，viewport缩放"></a>宽度rem，viewport缩放</h4><p>根据屏幕宽度设定 rem 值，需要适配的元素都使用 rem 为单位，不需要适配的元素还是使用 px 为单位。</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/24/igoration/" data-id="cj5jc70nf00016kcbyph2p42a" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/25/viewport/" data-id="cj5jc70nh00026kcbgsxqzm6r" class="article-share-link">Share</a>
       
       
     </footer>
@@ -131,19 +108,10 @@ css如此
     
 <nav id="article-nav">
   
-    <a href="/2017/07/25/viewport/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          关于viewport
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/07/17/bootstraptable/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/07/24/igoration/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">bootstraptable使用总结</div>
+      <div class="article-nav-title">js忽略的一些细节</div>
     </a>
   
 </nav>
