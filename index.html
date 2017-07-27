@@ -65,6 +65,131 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-center" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/07/27/center/" class="article-date">
+  <time datetime="2017-07-27T05:58:29.000Z" itemprop="datePublished">2017-07-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/27/center/">css水平居中和垂直居中</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="水平居中"><a href="#水平居中" class="headerlink" title="水平居中"></a>水平居中</h2><p>1.文字的水平居中</p>
+<pre>text-align:center;</pre>
+但是也不是所有情况都能够适用的，只有在元素标签具有宽度的时候才起效。
+元素的display具有以下四种状态：inline，block,inline-block,none
+inline 是不能设定宽度的，none是整个元素消失。
+所以文字的水平居中的前提是将元素的display设置成inline-block,或者是block
+    <div class="word">block文字居中</div>
+    <label class="word2">inline文字居中</label>
+    <span class="word3">inline-block文字居中</span>
+block文字居中完全没有问题，inline文字居中需要先设置display和width，inline-block需要设置width；
+但是inline-block会产生空隙。
+2.元素居中(父元素宽度已知，子元素为块级元素)
+    <pre>margin:0 auto;</pre>
+    例子：
+    html
+    <pre>
+        &lt;div class="sym"&gt;
+            &lt;div class="sym1"&gt;abc&lt;/div&gt;
+        &lt;/div&gt;
+    </pre>
+    css:
+    <pre>
+        .sym {
+                text-align: center;
+        }
+        .sym1 {
+            height: 100px;
+            width: 100px;
+            background-color: pink;
+            margin: 0 auto;
+        }
+    </pre>
+    前提条件，已知宽度。宽度设置同上。
+3.元素居中(父元素宽度已知，子元素为行内元素或者inline-block)
+<pre>text-align:center;</pre>
+例子：
+    html
+    <pre>
+        &lt;div class="sym2"&gt;
+            &lt;div class="sym3"&gt;abc&lt;/div&gt;
+        &lt;/div&gt;
+    </pre>
+    css:
+    <pre>
+        .sym2 {
+            text-align: center;
+        }
+        .sym3 {
+            display: inline-block; // inline
+            border:1px solid #999;
+        }
+    </pre>
+4.transform标签和绝对定位联合使用
+例子：
+    html
+    <pre>
+        &lt;div class="par1"&gt;
+            &lt;div class="son1"&gt;abc&lt;/div&gt;
+        &lt;/div&gt;
+    </pre>
+    css:
+    <pre>
+        .son1 {
+                position:absolute;
+                  left:50%;
+                  transform:translate(-50%,0);
+                  border:1px solid pink;
+            }
+    </pre>
+5.绝对定位和负值margin-left联合使用
+例子：
+    html
+    <pre>
+        &lt;div class="par2"&gt;
+            &lt;div class="son2"&gt;abc&lt;/div&gt;
+        &lt;/div&gt;
+    </pre>
+    css:
+    <pre>
+        .son2 {
+                position: absolute;
+                width: 100px;
+                left: 50%;
+                margin-left:-50px;
+            }
+    </pre>
+
+
+<p>后续添加</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/07/27/center/" data-id="cj5m6p71d0000ukcbetpv6q40" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-viewport" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/07/25/viewport/" class="article-date">
@@ -97,7 +222,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/25/viewport/" data-id="cj5jc70nh00026kcbgsxqzm6r" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/25/viewport/" data-id="cj5m6p7200008ukcb3nu715qc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -162,7 +287,7 @@ css如此
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/24/igoration/" data-id="cj5jc70nf00016kcbyph2p42a" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/24/igoration/" data-id="cj5m6p71l0002ukcb5gkmpgg3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -258,7 +383,7 @@ js中
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/17/bootstraptable/" data-id="cj5jc70na00006kcb13m55y4n" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/17/bootstraptable/" data-id="cj5m6p71i0001ukcbcw3374cc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -309,7 +434,7 @@ js中
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/17/closure/" data-id="cj5jc70oc00086kcb40rvzmp7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/17/closure/" data-id="cj5m6p71x0006ukcbtwlbqv2h" class="article-share-link">Share</a>
       
       
     </footer>
@@ -402,7 +527,7 @@ js中
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/13/twodivarray/" data-id="cj5jc70nt00046kcbl6c5gzt7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/13/twodivarray/" data-id="cj5m6p71m0003ukcbgrrdhgka" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/二维数组与一维数组的转换，二维数组的螺旋输出/">二维数组与一维数组的转换，二维数组的螺旋输出</a></li></ul>
@@ -461,7 +586,7 @@ js中
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/12/js/" data-id="cj5jc70nv00056kcbp6ovx6p6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/12/js/" data-id="cj5m6p71z0007ukcby6mcea81" class="article-share-link">Share</a>
       
       
     </footer>
@@ -506,7 +631,7 @@ js中
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/12/hello-world/" data-id="cj5jc70nk00036kcbtlrr3hob" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/12/hello-world/" data-id="cj5m6p71n0004ukcbot5vquwp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -560,6 +685,10 @@ js中
       <ul>
         
           <li>
+            <a href="/2017/07/27/center/">css水平居中和垂直居中</a>
+          </li>
+        
+          <li>
             <a href="/2017/07/25/viewport/">关于viewport</a>
           </li>
         
@@ -573,10 +702,6 @@ js中
         
           <li>
             <a href="/2017/07/17/closure/">闭包</a>
-          </li>
-        
-          <li>
-            <a href="/2017/07/13/twodivarray/">二维数组相关</a>
           </li>
         
       </ul>

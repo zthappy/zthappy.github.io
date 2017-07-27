@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>bootstraptable使用总结 | Moon of Mars</title>
+  <title>css水平居中和垂直居中 | Moon of Mars</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="bootstrap常用的一些1.接口返回格式不是默认格式时：      responseHandler:function (res) {         return res.Data;     }  2.复选框全选，不选      checkbox: true,     formatter: function (value, row, index) {         if (row.TFGSS">
+  <meta name="description" content="水平居中1.文字的水平居中 text-align:center; 但是也不是所有情况都能够适用的，只有在元素标签具有宽度的时候才起效。 元素的display具有以下四种状态：inline，block,inline-block,none inline 是不能设定宽度的，none是整个元素消失。 所以文字的水平居中的前提是将元素的display设置成inline-block,或者是block">
 <meta property="og:type" content="article">
-<meta property="og:title" content="bootstraptable使用总结">
-<meta property="og:url" content="http://yoursite.com/2017/07/17/bootstraptable/index.html">
+<meta property="og:title" content="css水平居中和垂直居中">
+<meta property="og:url" content="http://yoursite.com/2017/07/27/center/index.html">
 <meta property="og:site_name" content="Moon of Mars">
-<meta property="og:description" content="bootstrap常用的一些1.接口返回格式不是默认格式时：      responseHandler:function (res) {         return res.Data;     }  2.复选框全选，不选      checkbox: true,     formatter: function (value, row, index) {         if (row.TFGSS">
-<meta property="og:updated_time" content="2017-07-21T08:01:28.960Z">
+<meta property="og:description" content="水平居中1.文字的水平居中 text-align:center; 但是也不是所有情况都能够适用的，只有在元素标签具有宽度的时候才起效。 元素的display具有以下四种状态：inline，block,inline-block,none inline 是不能设定宽度的，none是整个元素消失。 所以文字的水平居中的前提是将元素的display设置成inline-block,或者是block">
+<meta property="og:updated_time" content="2017-07-27T08:35:25.183Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="bootstraptable使用总结">
-<meta name="twitter:description" content="bootstrap常用的一些1.接口返回格式不是默认格式时：      responseHandler:function (res) {         return res.Data;     }  2.复选框全选，不选      checkbox: true,     formatter: function (value, row, index) {         if (row.TFGSS">
+<meta name="twitter:title" content="css水平居中和垂直居中">
+<meta name="twitter:description" content="水平居中1.文字的水平居中 text-align:center; 但是也不是所有情况都能够适用的，只有在元素标签具有宽度的时候才起效。 元素的display具有以下四种状态：inline，block,inline-block,none inline 是不能设定宽度的，none是整个元素消失。 所以文字的水平居中的前提是将元素的display设置成inline-block,或者是block">
   
     <link rel="alternate" href="/atom.xml" title="Moon of Mars" type="application/atom+xml">
   
@@ -67,10 +67,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-bootstraptable" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-center" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/07/17/bootstraptable/" class="article-date">
-  <time datetime="2017-07-17T09:51:13.000Z" itemprop="datePublished">2017-07-17</time>
+    <a href="/2017/07/27/center/" class="article-date">
+  <time datetime="2017-07-27T05:58:29.000Z" itemprop="datePublished">2017-07-27</time>
 </a>
     
   </div>
@@ -81,7 +81,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      bootstraptable使用总结
+      css水平居中和垂直居中
     </h1>
   
 
@@ -89,71 +89,100 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="bootstrap常用的一些"><a href="#bootstrap常用的一些" class="headerlink" title="bootstrap常用的一些"></a>bootstrap常用的一些</h3><p>1.接口返回格式不是默认格式时：</p>
-<pre>
-    responseHandler:function (res) {
-        return res.Data;
-    }
-</pre>
-2.复选框全选，不选
-<pre>
-    checkbox: true,
-    formatter: function (value, row, index) {
-        if (row.TFGSSyncStatus != 99){
-            return {
-                disabled: true,
-                checked: false
-            }
+        <h2 id="水平居中"><a href="#水平居中" class="headerlink" title="水平居中"></a>水平居中</h2><p>1.文字的水平居中</p>
+<pre>text-align:center;</pre>
+但是也不是所有情况都能够适用的，只有在元素标签具有宽度的时候才起效。
+元素的display具有以下四种状态：inline，block,inline-block,none
+inline 是不能设定宽度的，none是整个元素消失。
+所以文字的水平居中的前提是将元素的display设置成inline-block,或者是block
+    <div class="word">block文字居中</div>
+    <label class="word2">inline文字居中</label>
+    <span class="word3">inline-block文字居中</span>
+block文字居中完全没有问题，inline文字居中需要先设置display和width，inline-block需要设置width；
+但是inline-block会产生空隙。
+2.元素居中(父元素宽度已知，子元素为块级元素)
+    <pre>margin:0 auto;</pre>
+    例子：
+    html
+    <pre>
+        &lt;div class="sym"&gt;
+            &lt;div class="sym1"&gt;abc&lt;/div&gt;
+        &lt;/div&gt;
+    </pre>
+    css:
+    <pre>
+        .sym {
+                text-align: center;
         }
-    }
-</pre>
-js中
-<pre>
-     var dataItem = $('#financeNewList').bootstrapTable("getSelections");
-        angular.forEach(dataItem, function (e, i) {
-            var para = {
-                OrderSerialId: e.TFGSOrderSerialId,
-                Id: e.DbrGuid,
-            };
-            paras.push(para);
-        });
-        </pre>
-        这边是用了angular的循环，可以自己替换成其他的循环
-3.常用属性
-<pre>
-     url: '/BackendTasks/GetAllTasks', //请求后台的URL（*）
-     method: 'get', //请求方式（*）
-     toolbar: '#toolbar', //工具按钮用哪个容器
-     striped: true, //是否显示行间隔色
-     cache: false, //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
-     pagination: true, //是否显示分页（*）
-     sortable: true, //是否启用排序
-     sortOrder: "asc", //排序方式
-     queryParams: oTableInit.queryParams, //传递参数（*）
-     sidePagination: "server", //分页方式：client客户端分页，server服务端分页（*）
-     pageNumber: 1, //初始化加载第一页，默认第一页
-     pageSize: 5, //每页的记录行数（*）
-     pageList: [10, 25, 50, 100], //可供选择的每页的行数（*）
-     search: false, //是否显示表格搜索，此搜索是客户端搜索，不会进服务端，所以，个人感觉意义不大
-     strictSearch: true,
-     showColumns: true, //是否显示所有的列
-     showRefresh: true, //是否显示刷新按钮
-     minimumCountColumns: 2, //最少允许的列数
-     clickToSelect: true, //是否启用点击选中行
-     height: 500, //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
-     uniqueId: "Id", //每一行的唯一标识，一般为主键列
-     showToggle: true, //是否显示详细视图和列表视图的切换按钮
-     cardView: false, //是否显示详细视图
-     detailView: false, //是否显示父子表
-</pre>
+        .sym1 {
+            height: 100px;
+            width: 100px;
+            background-color: pink;
+            margin: 0 auto;
+        }
+    </pre>
+    前提条件，已知宽度。宽度设置同上。
+3.元素居中(父元素宽度已知，子元素为行内元素或者inline-block)
+<pre>text-align:center;</pre>
+例子：
+    html
+    <pre>
+        &lt;div class="sym2"&gt;
+            &lt;div class="sym3"&gt;abc&lt;/div&gt;
+        &lt;/div&gt;
+    </pre>
+    css:
+    <pre>
+        .sym2 {
+            text-align: center;
+        }
+        .sym3 {
+            display: inline-block; // inline
+            border:1px solid #999;
+        }
+    </pre>
+4.transform标签和绝对定位联合使用
+例子：
+    html
+    <pre>
+        &lt;div class="par1"&gt;
+            &lt;div class="son1"&gt;abc&lt;/div&gt;
+        &lt;/div&gt;
+    </pre>
+    css:
+    <pre>
+        .son1 {
+                position:absolute;
+                  left:50%;
+                  transform:translate(-50%,0);
+                  border:1px solid pink;
+            }
+    </pre>
+5.绝对定位和负值margin-left联合使用
+例子：
+    html
+    <pre>
+        &lt;div class="par2"&gt;
+            &lt;div class="son2"&gt;abc&lt;/div&gt;
+        &lt;/div&gt;
+    </pre>
+    css:
+    <pre>
+        .son2 {
+                position: absolute;
+                width: 100px;
+                left: 50%;
+                margin-left:-50px;
+            }
+    </pre>
 
 
-<p>其他再补充</p>
+<p>后续添加</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/17/bootstraptable/" data-id="cj5m6p71i0001ukcbcw3374cc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/27/center/" data-id="cj5m6p71d0000ukcbetpv6q40" class="article-share-link">Share</a>
       
       
     </footer>
@@ -162,19 +191,10 @@ js中
     
 <nav id="article-nav">
   
-    <a href="/2017/07/24/igoration/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          js忽略的一些细节
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/07/17/closure/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/07/25/viewport/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">闭包</div>
+      <div class="article-nav-title">关于viewport</div>
     </a>
   
 </nav>
