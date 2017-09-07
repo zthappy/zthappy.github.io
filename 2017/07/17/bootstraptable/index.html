@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/07/17/bootstraptable/index.html">
 <meta property="og:site_name" content="Moon of Mars">
 <meta property="og:description" content="bootstrap常用的一些1.接口返回格式不是默认格式时：      responseHandler:function (res) {         return res.Data;     }  2.复选框全选，不选      checkbox: true,     formatter: function (value, row, index) {         if (row.TFGSS">
-<meta property="og:updated_time" content="2017-09-07T08:08:33.816Z">
+<meta property="og:updated_time" content="2017-09-07T08:25:09.894Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="bootstraptable使用总结">
 <meta name="twitter:description" content="bootstrap常用的一些1.接口返回格式不是默认格式时：      responseHandler:function (res) {         return res.Data;     }  2.复选框全选，不选      checkbox: true,     formatter: function (value, row, index) {         if (row.TFGSS">
@@ -56,9 +56,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -150,24 +150,24 @@ js中
 
 <p>3.表单验证之复选框<br>angular自带了表单验证,比如</p>
 <pre>
-    <div class="col-lg-24">
-        <input type="text" ng-model="para.TFPRSupplierId" class="form-control" name="TFPRSupplierId" id="TFPRSupplierId" required>
-    </div>
-    <span class="validation">
-        <font ng-show="myForm.TFPRSupplierId.$error.required">*</font>
-    </span>
+    &lt;div class="col-lg-24"&gt;
+        &lt;input type="text" ng-model="para.TFPRSupplierId" class="form-control" name="TFPRSupplierId"  id="TFPRSupplierId" required/&gt;
+    &lt;/div&gt;
+    &lt;span class="validation"&gt;
+        &lt;font ng-show="myForm.TFPRSupplierId.$error.required"&gt;*&lt;/font&gt;
+    &lt;/span&gt;
 </pre>
 一般的下拉框，input都可以用表单验证，在提交的按钮里myForm.$error.required即可，这是必填，还可以结合过滤器等验证其他，比如金额等
 但是复选框，angular没有实现
 于是，我再一次偶然的开发中做到了简单的验证复选框必选
 代码如下：html
 <pre>
-<div class="col-lg-24">
-<label ng-repeat="item in initData.PayOrderType"><input type="checkbox" name="payorderType" value="" ng-click="isSelected($event,item.Value)"></label>
-</div>
-<span class="validation">
-    <font ng-show="status">*</font>
-</span>
+    &lt;div class="col-lg-24"&gt;
+    &lt;label ng-repeat="item in initData.PayOrderType"&gt;&lt;input type="checkbox" name="payorderType" value="" ng-click="isSelected($event,item.Value)"&gt;&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;span class="validation"&gt;
+        &lt;font ng-show="status"&gt;*&lt;/font&gt;
+    &lt;/span>
 </pre>
 js
 <pre>
@@ -193,7 +193,7 @@ $scope.isSelected = function(e,item) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/17/bootstraptable/" data-id="cj7a6opkg00084gcbkexh5bsc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/17/bootstraptable/" data-id="cj7a6vnk100009scbbd9dj27p" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -203,7 +203,7 @@ $scope.isSelected = function(e,item) {
 <nav id="article-nav">
   
     <a href="/2017/07/24/igoration/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
+      <strong class="article-nav-caption">Récent</strong>
       <div class="article-nav-title">
         
           js忽略的一些细节
@@ -213,7 +213,7 @@ $scope.isSelected = function(e,item) {
   
   
     <a href="/2017/07/17/closure/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
+      <strong class="article-nav-caption">Ancien</strong>
       <div class="article-nav-title">闭包</div>
     </a>
   
@@ -231,7 +231,7 @@ $scope.isSelected = function(e,item) {
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
+    <h3 class="widget-title">Mot-clés</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/二维数组与一维数组的转换，二维数组的螺旋输出/">二维数组与一维数组的转换，二维数组的螺旋输出</a></li></ul>
     </div>
@@ -241,7 +241,7 @@ $scope.isSelected = function(e,item) {
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
+    <h3 class="widget-title">Nuage de mot-clés</h3>
     <div class="widget tagcloud">
       <a href="/tags/二维数组与一维数组的转换，二维数组的螺旋输出/" style="font-size: 10px;">二维数组与一维数组的转换，二维数组的螺旋输出</a>
     </div>
@@ -260,7 +260,7 @@ $scope.isSelected = function(e,item) {
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
         
@@ -297,7 +297,7 @@ $scope.isSelected = function(e,item) {
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 Ting Zhai<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>

@@ -52,9 +52,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -92,7 +92,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/08/02/vueModal/" data-id="cj7a6opjx00064gcb4lmt498k" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/08/02/vueModal/" data-id="cj7a6vnkn00089scbt5hgnc15" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -231,7 +231,7 @@ block文字居中完全没有问题，inline文字居中需要先设置display�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/27/center/" data-id="cj7a6opji00004gcbj9knx7r4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/27/center/" data-id="cj7a6vnk900029scbahxaqboi" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -273,7 +273,7 @@ block文字居中完全没有问题，inline文字居中需要先设置display�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/25/viewport/" data-id="cj7a6opjt00044gcb8txfrp9s" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/25/viewport/" data-id="cj7a6vnkh00069scbe00rxc9q" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -338,7 +338,7 @@ css如此
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/24/igoration/" data-id="cj7a6opjs00034gcbda5a0oj4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/24/igoration/" data-id="cj7a6vnkc00049scbmuv0mpm8" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -431,24 +431,24 @@ js中
 
 <p>3.表单验证之复选框<br>angular自带了表单验证,比如</p>
 <pre>
-    <div class="col-lg-24">
-        <input type="text" ng-model="para.TFPRSupplierId" class="form-control" name="TFPRSupplierId" id="TFPRSupplierId" required>
-    </div>
-    <span class="validation">
-        <font ng-show="myForm.TFPRSupplierId.$error.required">*</font>
-    </span>
+    &lt;div class="col-lg-24"&gt;
+        &lt;input type="text" ng-model="para.TFPRSupplierId" class="form-control" name="TFPRSupplierId"  id="TFPRSupplierId" required/&gt;
+    &lt;/div&gt;
+    &lt;span class="validation"&gt;
+        &lt;font ng-show="myForm.TFPRSupplierId.$error.required"&gt;*&lt;/font&gt;
+    &lt;/span&gt;
 </pre>
 一般的下拉框，input都可以用表单验证，在提交的按钮里myForm.$error.required即可，这是必填，还可以结合过滤器等验证其他，比如金额等
 但是复选框，angular没有实现
 于是，我再一次偶然的开发中做到了简单的验证复选框必选
 代码如下：html
 <pre>
-<div class="col-lg-24">
-<label ng-repeat="item in initData.PayOrderType"><input type="checkbox" name="payorderType" value="" ng-click="isSelected($event,item.Value)"></label>
-</div>
-<span class="validation">
-    <font ng-show="status">*</font>
-</span>
+    &lt;div class="col-lg-24"&gt;
+    &lt;label ng-repeat="item in initData.PayOrderType"&gt;&lt;input type="checkbox" name="payorderType" value="" ng-click="isSelected($event,item.Value)"&gt;&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;span class="validation"&gt;
+        &lt;font ng-show="status"&gt;*&lt;/font&gt;
+    &lt;/span>
 </pre>
 js
 <pre>
@@ -474,7 +474,7 @@ $scope.isSelected = function(e,item) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/17/bootstraptable/" data-id="cj7a6opkg00084gcbkexh5bsc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/17/bootstraptable/" data-id="cj7a6vnk100009scbbd9dj27p" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -525,7 +525,7 @@ $scope.isSelected = function(e,item) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/17/closure/" data-id="cj7a6opjn00014gcbb4tcaybj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/17/closure/" data-id="cj7a6vnk600019scblzr8yovc" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -618,7 +618,7 @@ $scope.isSelected = function(e,item) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/13/twodivarray/" data-id="cj7a6opkb00074gcbmt8q1qps" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/13/twodivarray/" data-id="cj7a6vnkj00079scb9qorvwkm" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/二维数组与一维数组的转换，二维数组的螺旋输出/">二维数组与一维数组的转换，二维数组的螺旋输出</a></li></ul>
@@ -677,7 +677,7 @@ $scope.isSelected = function(e,item) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/12/js/" data-id="cj7a6opju00054gcbw26c2vn6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/12/js/" data-id="cj7a6vnke00059scbue8v5yan" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -722,7 +722,7 @@ $scope.isSelected = function(e,item) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/12/hello-world/" data-id="cj7a6opjq00024gcbmek8yoq7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/12/hello-world/" data-id="cj7a6vnkb00039scb6r4079hb" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -742,7 +742,7 @@ $scope.isSelected = function(e,item) {
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
+    <h3 class="widget-title">Mot-clés</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/二维数组与一维数组的转换，二维数组的螺旋输出/">二维数组与一维数组的转换，二维数组的螺旋输出</a></li></ul>
     </div>
@@ -752,7 +752,7 @@ $scope.isSelected = function(e,item) {
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
+    <h3 class="widget-title">Nuage de mot-clés</h3>
     <div class="widget tagcloud">
       <a href="/tags/二维数组与一维数组的转换，二维数组的螺旋输出/" style="font-size: 10px;">二维数组与一维数组的转换，二维数组的螺旋输出</a>
     </div>
@@ -771,7 +771,7 @@ $scope.isSelected = function(e,item) {
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
         
@@ -808,7 +808,7 @@ $scope.isSelected = function(e,item) {
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 Ting Zhai<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
