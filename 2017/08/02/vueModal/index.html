@@ -5,16 +5,16 @@
   
   <title>js对象相关 | Moon of Mars</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="对象的拷贝">
+  <meta name="description" content="对象的拷贝 深拷贝和浅拷贝 实现深拷贝  var cloneObj = function(obj){     var str, newobj = obj.constructor === Array ? [] : {};     if(typeof obj !== &apos;object&apos;){         return;     } else if(window.JSON){         str =">
 <meta property="og:type" content="article">
 <meta property="og:title" content="js对象相关">
 <meta property="og:url" content="http://yoursite.com/2017/08/02/vueModal/index.html">
 <meta property="og:site_name" content="Moon of Mars">
-<meta property="og:description" content="对象的拷贝">
-<meta property="og:updated_time" content="2017-08-10T07:43:51.934Z">
+<meta property="og:description" content="对象的拷贝 深拷贝和浅拷贝 实现深拷贝  var cloneObj = function(obj){     var str, newobj = obj.constructor === Array ? [] : {};     if(typeof obj !== &apos;object&apos;){         return;     } else if(window.JSON){         str =">
+<meta property="og:updated_time" content="2017-09-12T07:53:39.552Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js对象相关">
-<meta name="twitter:description" content="对象的拷贝">
+<meta name="twitter:description" content="对象的拷贝 深拷贝和浅拷贝 实现深拷贝  var cloneObj = function(obj){     var str, newobj = obj.constructor === Array ? [] : {};     if(typeof obj !== &apos;object&apos;){         return;     } else if(window.JSON){         str =">
   
     <link rel="alternate" href="/atom.xml" title="Moon of Mars" type="application/atom+xml">
   
@@ -90,11 +90,31 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>对象的拷贝</p>
+<p>深拷贝和浅拷贝</p>
+<p>实现深拷贝</p>
+<pre>
+var cloneObj = function(obj){
+    var str, newobj = obj.constructor === Array ? [] : {};
+    if(typeof obj !== 'object'){
+        return;
+    } else if(window.JSON){
+        str = JSON.stringify(obj), //系列化对象
+        newobj = JSON.parse(str); //还原
+    } else {
+        for(var i in obj){
+            newobj[i] = typeof obj[i] === 'object' ?
+            cloneObj(obj[i]) : obj[i];
+        }
+    }
+    return newobj;
+};
+</pre>
+
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/08/02/vueModal/" data-id="cj7haqu8h0009fkcbioy6z760" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/08/02/vueModal/" data-id="cj7hc6a240009s4cbx3otyksl" class="article-share-link">Partager</a>
       
       
     </footer>
