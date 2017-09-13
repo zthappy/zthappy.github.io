@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>js忽略的一些细节 | Moon of Mars</title>
+  <title>tetrisun | Moon of Mars</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.A.style.lefthtml如此      &amp;lt;div class=&quot;smallkedu&quot; id=&quot;move&quot;$gt;1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9&amp;lt;/div&amp;gt;  css如此      #move {         background-color: #fff;         height: 4">
+  <meta name="description" content="js 实现 俄罗斯方块俄罗斯方块陪我度过了童年时光，所以在从事了前端之后，一直想用js实现一个俄罗斯方块下面是我一步步实现俄罗斯方块的步骤 #1.实现背景的控制格思路：第一个方法 背景图片第二个方法 表格第三个方法 div做成表格最后我采用了表格的方法，因为表格可以有table.rows[i].cells[j]这个属性，可以直接定位其次就是表格定义的css比较简单      #bg td {">
 <meta name="keywords" content="js">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js忽略的一些细节">
-<meta property="og:url" content="http://yoursite.com/2017/07/24/igoration/index.html">
+<meta property="og:title" content="tetrisun">
+<meta property="og:url" content="http://yoursite.com/2017/09/13/tetrisun/index.html">
 <meta property="og:site_name" content="Moon of Mars">
-<meta property="og:description" content="1.A.style.lefthtml如此      &amp;lt;div class=&quot;smallkedu&quot; id=&quot;move&quot;$gt;1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9&amp;lt;/div&amp;gt;  css如此      #move {         background-color: #fff;         height: 4">
-<meta property="og:updated_time" content="2017-09-12T08:44:02.146Z">
+<meta property="og:description" content="js 实现 俄罗斯方块俄罗斯方块陪我度过了童年时光，所以在从事了前端之后，一直想用js实现一个俄罗斯方块下面是我一步步实现俄罗斯方块的步骤 #1.实现背景的控制格思路：第一个方法 背景图片第二个方法 表格第三个方法 div做成表格最后我采用了表格的方法，因为表格可以有table.rows[i].cells[j]这个属性，可以直接定位其次就是表格定义的css比较简单      #bg td {">
+<meta property="og:updated_time" content="2017-09-13T10:16:01.104Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="js忽略的一些细节">
-<meta name="twitter:description" content="1.A.style.lefthtml如此      &amp;lt;div class=&quot;smallkedu&quot; id=&quot;move&quot;$gt;1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9&amp;lt;/div&amp;gt;  css如此      #move {         background-color: #fff;         height: 4">
+<meta name="twitter:title" content="tetrisun">
+<meta name="twitter:description" content="js 实现 俄罗斯方块俄罗斯方块陪我度过了童年时光，所以在从事了前端之后，一直想用js实现一个俄罗斯方块下面是我一步步实现俄罗斯方块的步骤 #1.实现背景的控制格思路：第一个方法 背景图片第二个方法 表格第三个方法 div做成表格最后我采用了表格的方法，因为表格可以有table.rows[i].cells[j]这个属性，可以直接定位其次就是表格定义的css比较简单      #bg td {">
   
     <link rel="alternate" href="/atom.xml" title="Moon of Mars" type="application/atom+xml">
   
@@ -68,10 +68,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-igoration" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-tetrisun" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/07/24/igoration/" class="article-date">
-  <time datetime="2017-07-24T08:32:23.000Z" itemprop="datePublished">2017-07-24</time>
+    <a href="/2017/09/13/tetrisun/" class="article-date">
+  <time datetime="2017-09-13T09:25:55.000Z" itemprop="datePublished">2017-09-13</time>
 </a>
     
   </div>
@@ -82,7 +82,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      js忽略的一些细节
+      tetrisun
     </h1>
   
 
@@ -90,40 +90,31 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-A-style-left"><a href="#1-A-style-left" class="headerlink" title="1.A.style.left"></a>1.A.style.left</h2><p>html如此</p>
+        <h3 id="js-实现-俄罗斯方块"><a href="#js-实现-俄罗斯方块" class="headerlink" title="js 实现 俄罗斯方块"></a>js 实现 俄罗斯方块</h3><p>俄罗斯方块陪我度过了童年时光，所以在从事了前端之后，一直想用js实现一个俄罗斯方块<br>下面是我一步步实现俄罗斯方块的步骤</p>
+<p>#1.实现背景的控制格<br>思路：<br>第一个方法 背景图片<br>第二个方法 表格<br>第三个方法 div做成表格<br>最后我采用了表格的方法，因为表格可以有table.rows[i].cells[j]这个属性，可以直接定位<br>其次就是表格定义的css比较简单</p>
 <pre>
-    &lt;div class="smallkedu" id="move"$gt;1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9&lt;/div&gt;
-</pre>
-css如此
-<pre>
-    #move {
-        background-color: #fff;
-        height: 40px;
-        width: 2080px;
-        position: absolute;
-        bottom:5px;
-        left:0;
+    #bg td {
+        width: 20px;
+        height: 20px;
     }
 </pre>
-毫无毛病，我现在想要在js种获取css的某个值，js如此
+
+<p>#2.实现方块<br>有七种方块，田，山，一，之，L,反L,反之<br>case 0:{//田<br>    activeBlock[0] = {x:0, y:4};<br>    activeBlock[1] = {x:1, y:4};<br>    activeBlock[2] = {x:0, y:5};<br>    activeBlock[3] = {x:1, y:5};<br>    break;<br>}<br>case 1:{<br>    activeBlock[0] = {x:0, y:3};<br>    activeBlock[1] = {x:0, y:4};<br>    activeBlock[2] = {x:0, y:5};<br>    activeBlock[3] = {x:0, y:6};<br>    break;<br>}<br>case 2:{<br>    activeBlock[0] = {x:0, y:5};<br>    activeBlock[1] = {x:1, y:4};<br>    activeBlock[2] = {x:1, y:5};<br>    activeBlock[3] = {x:2, y:4};<br>    break;<br>}<br>case 3:{<br>    activeBlock[0] = {x:0, y:4};<br>    activeBlock[1] = {x:1, y:4};<br>    activeBlock[2] = {x:1, y:5};<br>    activeBlock[3] = {x:2, y:5};<br>    break;<br>}<br>case 4:{<br>    activeBlock[0] = {x:0, y:4};<br>    activeBlock[1] = {x:1, y:4};<br>    activeBlock[2] = {x:1, y:5};<br>    activeBlock[3] = {x:1, y:6};<br>    break;<br>}<br>case 5:{<br>    activeBlock[0] = {x:0, y:4};<br>    activeBlock[1] = {x:1, y:4};<br>    activeBlock[2] = {x:2, y:4};<br>    activeBlock[3] = {x:2, y:5};<br>    break;<br>}<br>case 6:{<br>    activeBlock[0] = {x:0, y:5};<br>    activeBlock[1] = {x:1, y:4};<br>    activeBlock[2] = {x:1, y:5};<br>    activeBlock[3] = {x:1, y:6};<br>    break;<br>}<br>面板是15*20的表格，所以初始化的时候，“田”字处于第四个方格，同理其他</p>
+<p>#3.实现方块的移动</p>
 <pre>
-    var movediv = document.getElementById("move");
-    var x = movediv.style.left;
-    console.log(x);
-</pre>
-也毫无毛病，但是控制台就是打印不出left值；
-我设置 movediv.style.backgroundColor = #fff
-实现了颜色变化，所以说明我的语法没有问题。
-上网搜索了很久，终于找到答案：
- A.style.left 只针对行内样式;
- 所以将 html改成以下方式即可
- <pre>
-    &lt;div class="smallkedu" id="move" style="left:0"&gt;1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9&lt;/div&gt;
- </pre>
+//向下
+    function moveDown() {
+        erase();
+        for(let i=0;i<4;i++){ activeblock[i].x="activeBlock[i].x+1;" }="" console.log(activeblock);="" updatebg(activeblock);="" paint();="" 向左="" function="" moveleft()="" {="" erase();="" for(let="" i="0;i<4;i++){" activeblock[i].y="activeBlock[i].y-1;" 向右="" moveright()="" <="" pre="">
+但是移动的同时还要考虑到 方块的显示，我的方法是，移动一格，就重新绘制一遍
+<pre>
+//更新背景
+function updateBg(activeBlock) {
+    for(let i = 0;i<4;i++){ isbusy[activeblock[i].x][activeblock[i].y]="1;" }="" 绘制图形="" function="" paint()="" {="" var="" table="document.getElementById("bg");" for="" (let="" i="0;i<20;i++){" for(let="" j="0;j<15;j++){" if(isbusy[i][j]="=" 1){="" table.rows[i].cells[j].style.backgroundcolor="pink" ;="" 擦除="" erase()="" isbusy[i][j]="0;" <="" pre=""></4;i++){></pre></4;i++){></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/24/igoration/" data-id="cj7ivgcca000b08cbgszggak9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/09/13/tetrisun/" data-id="cj7ivgcc2000508cby87494i0" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
@@ -134,19 +125,10 @@ css如此
     
 <nav id="article-nav">
   
-    <a href="/2017/07/25/viewport/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          关于viewport
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/07/17/bootstraptable/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/09/12/wechatPrograming/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">bootstraptable使用总结</div>
+      <div class="article-nav-title">wechatPrograming</div>
     </a>
   
 </nav>

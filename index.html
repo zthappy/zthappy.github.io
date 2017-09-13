@@ -65,6 +65,64 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-tetrisun" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/09/13/tetrisun/" class="article-date">
+  <time datetime="2017-09-13T09:25:55.000Z" itemprop="datePublished">2017-09-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/13/tetrisun/">tetrisun</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="js-实现-俄罗斯方块"><a href="#js-实现-俄罗斯方块" class="headerlink" title="js 实现 俄罗斯方块"></a>js 实现 俄罗斯方块</h3><p>俄罗斯方块陪我度过了童年时光，所以在从事了前端之后，一直想用js实现一个俄罗斯方块<br>下面是我一步步实现俄罗斯方块的步骤</p>
+<p>#1.实现背景的控制格<br>思路：<br>第一个方法 背景图片<br>第二个方法 表格<br>第三个方法 div做成表格<br>最后我采用了表格的方法，因为表格可以有table.rows[i].cells[j]这个属性，可以直接定位<br>其次就是表格定义的css比较简单</p>
+<pre>
+    #bg td {
+        width: 20px;
+        height: 20px;
+    }
+</pre>
+
+<p>#2.实现方块<br>有七种方块，田，山，一，之，L,反L,反之<br>case 0:{//田<br>    activeBlock[0] = {x:0, y:4};<br>    activeBlock[1] = {x:1, y:4};<br>    activeBlock[2] = {x:0, y:5};<br>    activeBlock[3] = {x:1, y:5};<br>    break;<br>}<br>case 1:{<br>    activeBlock[0] = {x:0, y:3};<br>    activeBlock[1] = {x:0, y:4};<br>    activeBlock[2] = {x:0, y:5};<br>    activeBlock[3] = {x:0, y:6};<br>    break;<br>}<br>case 2:{<br>    activeBlock[0] = {x:0, y:5};<br>    activeBlock[1] = {x:1, y:4};<br>    activeBlock[2] = {x:1, y:5};<br>    activeBlock[3] = {x:2, y:4};<br>    break;<br>}<br>case 3:{<br>    activeBlock[0] = {x:0, y:4};<br>    activeBlock[1] = {x:1, y:4};<br>    activeBlock[2] = {x:1, y:5};<br>    activeBlock[3] = {x:2, y:5};<br>    break;<br>}<br>case 4:{<br>    activeBlock[0] = {x:0, y:4};<br>    activeBlock[1] = {x:1, y:4};<br>    activeBlock[2] = {x:1, y:5};<br>    activeBlock[3] = {x:1, y:6};<br>    break;<br>}<br>case 5:{<br>    activeBlock[0] = {x:0, y:4};<br>    activeBlock[1] = {x:1, y:4};<br>    activeBlock[2] = {x:2, y:4};<br>    activeBlock[3] = {x:2, y:5};<br>    break;<br>}<br>case 6:{<br>    activeBlock[0] = {x:0, y:5};<br>    activeBlock[1] = {x:1, y:4};<br>    activeBlock[2] = {x:1, y:5};<br>    activeBlock[3] = {x:1, y:6};<br>    break;<br>}<br>面板是15*20的表格，所以初始化的时候，“田”字处于第四个方格，同理其他</p>
+<p>#3.实现方块的移动</p>
+<pre>
+//向下
+    function moveDown() {
+        erase();
+        for(let i=0;i<4;i++){ activeblock[i].x="activeBlock[i].x+1;" }="" console.log(activeblock);="" updatebg(activeblock);="" paint();="" 向左="" function="" moveleft()="" {="" erase();="" for(let="" i="0;i<4;i++){" activeblock[i].y="activeBlock[i].y-1;" 向右="" moveright()="" <="" pre="">
+但是移动的同时还要考虑到 方块的显示，我的方法是，移动一格，就重新绘制一遍
+<pre>
+//更新背景
+function updateBg(activeBlock) {
+    for(let i = 0;i<4;i++){ isbusy[activeblock[i].x][activeblock[i].y]="1;" }="" 绘制图形="" function="" paint()="" {="" var="" table="document.getElementById("bg");" for="" (let="" i="0;i<20;i++){" for(let="" j="0;j<15;j++){" if(isbusy[i][j]="=" 1){="" table.rows[i].cells[j].style.backgroundcolor="pink" ;="" 擦除="" erase()="" isbusy[i][j]="0;" <="" pre=""></4;i++){></pre></4;i++){></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/09/13/tetrisun/" data-id="cj7ivgcc2000508cby87494i0" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-wechatPrograming" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/09/12/wechatPrograming/" class="article-date">
@@ -117,7 +175,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/12/wechatPrograming/" data-id="cj7hcpfoc000e6wcbjd8es9pz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/09/12/wechatPrograming/" data-id="cj7ivgcd4000q08cbayh7wsnz" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/小程序/">小程序</a></li></ul>
@@ -181,7 +239,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/12/wechatPro/" data-id="cj7hcpfoa000c6wcbcp01pt55" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/09/12/wechatPro/" data-id="cj7ivgccg000h08cbj4aun126" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/小程序/">小程序</a></li></ul>
@@ -240,7 +298,7 @@ var cloneObj = function(obj){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/08/02/vueModal/" data-id="cj7hcpfp2000s6wcb90cyic8u" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/08/02/vueModal/" data-id="cj7ivgcce000d08cb3jvw06gr" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
@@ -381,7 +439,7 @@ block文字居中完全没有问题，inline文字居中需要先设置display�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/27/center/" data-id="cj7hcpfns00026wcb56xzrqon" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/27/center/" data-id="cj7ivgccj000k08cb9gf7xtdx" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
@@ -425,7 +483,7 @@ block文字居中完全没有问题，inline文字居中需要先设置display�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/25/viewport/" data-id="cj7hcpfo9000a6wcbsm9t9a9l" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/25/viewport/" data-id="cj7ivgccf000f08cboe49eivh" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li></ul>
@@ -492,7 +550,7 @@ css如此
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/24/igoration/" data-id="cj7hcpfo100056wcbwmonfdcw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/24/igoration/" data-id="cj7ivgcca000b08cbgszggak9" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
@@ -630,7 +688,7 @@ $scope.isSelected = function(e,item) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/17/bootstraptable/" data-id="cj7hcpfnq00016wcbwomud00q" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/17/bootstraptable/" data-id="cj7ivgcc1000408cbiynw6w9y" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bootstrap/">bootstrap</a></li></ul>
@@ -683,7 +741,7 @@ $scope.isSelected = function(e,item) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/17/closure/" data-id="cj7hcpfny00046wcb0ie9yh08" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/17/closure/" data-id="cj7ivgcbo000008cb7fm4x099" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
@@ -778,66 +836,7 @@ $scope.isSelected = function(e,item) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/13/twodivarray/" data-id="cj7hcpfo800096wcbblzdyufn" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-js" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/07/12/js/" class="article-date">
-  <time datetime="2017-07-12T08:49:33.000Z" itemprop="datePublished">2017-07-12</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/12/js/">Js 数组循环比较</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h3><p>最简单最通用的循环，代码如下：<br>    for(var i = 0; i &lt; arr.length;i++) {<br>        // 代码<br>    }</p>
-<h3 id="优化的for循环，代码如下："><a href="#优化的for循环，代码如下：" class="headerlink" title="优化的for循环，代码如下："></a>优化的for循环，代码如下：</h3><pre><code>for(var i = 0, len = arr.length;i&lt;len;i++) {
-    // 代码
-}
-</code></pre><h3 id="for-in-循环"><a href="#for-in-循环" class="headerlink" title="for..in 循环"></a>for..in 循环</h3><pre><code>for(var i in arr) {
-    // 代码
-}
-</code></pre><h3 id="forEach循环，ie中无该方法，代码如下："><a href="#forEach循环，ie中无该方法，代码如下：" class="headerlink" title="forEach循环，ie中无该方法，代码如下："></a>forEach循环，ie中无该方法，代码如下：</h3><pre><code>arr.forEach(function(value,index,arr){
-    // 代码
-})
-</code></pre><h3 id="map-循环"><a href="#map-循环" class="headerlink" title="map 循环"></a>map 循环</h3><pre><code>arr.map(function(value,index,arr) {
-    // 代码
-})
-</code></pre><h3 id="for-of循环-es6"><a href="#for-of循环-es6" class="headerlink" title="for..of循环 es6"></a>for..of循环 es6</h3><pre><code>for(var i of arr) {
-    // 代码
-}
-</code></pre><h2 id="测试代码："><a href="#测试代码：" class="headerlink" title="测试代码："></a>测试代码：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line">   function init() &#123;</div><div class="line">	var a = [];</div><div class="line">	for(var i=0;i&lt;1000000;i++)&#123;</div><div class="line">		a.push(i);</div><div class="line">	&#125;</div><div class="line">	return a;</div><div class="line">&#125;</div><div class="line">function testforEach(arr)&#123;</div><div class="line">	arr.forEach(function(e)&#123;arr[e]&#125;);</div><div class="line">&#125;</div><div class="line">function testfor(arr) &#123;</div><div class="line">	for(var i = 0; i&lt;arr.length;i++)&#123;</div><div class="line">		arr[i];</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">function testfor2(arr) &#123;</div><div class="line">	for(var i = 0,len=arr.length; i&lt;len;i++)&#123;</div><div class="line">		arr[i];</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">function testforIn(arr)&#123;</div><div class="line">	for(var i in arr) &#123;</div><div class="line">		arr[i];</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">function testmap(arr) &#123;</div><div class="line">	arr.map(function(value,index,arr)&#123;arr[index]&#125;);</div><div class="line">&#125;</div><div class="line">function testforOf(arr)&#123;</div><div class="line">	for(let index of arr)&#123;</div><div class="line">		arr[index]</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">window.onload = function()&#123;</div><div class="line">	var arr = init();</div><div class="line">	console.time(&quot;forEach&quot;);</div><div class="line">	testforEach(arr);</div><div class="line">	console.timeEnd(&quot;forEach&quot;);</div><div class="line">	console.time(&quot;for&quot;);</div><div class="line">	testfor(arr);</div><div class="line">	console.timeEnd(&quot;for&quot;);</div><div class="line">	console.time(&quot;for2&quot;);</div><div class="line">	testfor2(arr);</div><div class="line">	console.timeEnd(&quot;for2&quot;);</div><div class="line">	console.time(&quot;forIn&quot;);</div><div class="line">	testforIn(arr);</div><div class="line">	console.timeEnd(&quot;forIn&quot;);</div><div class="line">	console.time(&quot;map&quot;);</div><div class="line">	testmap(arr);</div><div class="line">	console.timeEnd(&quot;map&quot;);</div><div class="line">	console.time(&quot;forof&quot;);</div><div class="line">	testforOf(arr);</div><div class="line">	console.timeEnd(&quot;forof&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="性能分析"><a href="#性能分析" class="headerlink" title="性能分析"></a>性能分析</h3><p>代码运行时间：<br>forEach: 13.323974609375ms<br>for: 1.428955078125ms<br>for2: 1.48583984375ms<br>forIn: 160.415771484375ms<br>map: 155.574951171875ms<br>forof: 5.385009765625ms</p>
-<p>分析：<br>1.经过大量数据测试，普通的for循环是速度最快的<br>2.优化的for循环速度和for循环速度差不多，甚至更快一点，因为初始化length之后，就不必每次都去查询长度了。<br>3.forEach 的缺陷在于ie不支持<br>4.for..in,看上去和for循环差不多，但是差别很大，每次遇到for..in循环时，需在后台创建一个枚举器，enumerator，所以导致速度很慢<br>5.map方法创建一个新数组，返回结果是该数组中的每个元素都调用一个提供的函数后返回的结果。参数是一个回调函数，回调函数的三个参数分别是value,index,arr<br>6.for..of es6之后才能使用。</p>
-<hr>
-<p> 代码地址：<a href="https://github.com/zthappy/Javascript.git" target="_blank" rel="external">https://github.com/zthappy/Javascript.git</a><br> 运行：<a href="http://htmlpreview.github.io/?https://github.com/zthappy/Javascript/blob/master/Array/arraycycle.html" target="_blank" rel="external">http://htmlpreview.github.io/?https://github.com/zthappy/Javascript/blob/master/Array/arraycycle.html</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/12/js/" data-id="cj7hcpfo200066wcbjlhblrds" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/13/twodivarray/" data-id="cj7ivgcc8000908cbmk60tijw" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
@@ -897,6 +896,10 @@ $scope.isSelected = function(e,item) {
       <ul>
         
           <li>
+            <a href="/2017/09/13/tetrisun/">tetrisun</a>
+          </li>
+        
+          <li>
             <a href="/2017/09/12/wechatPrograming/">wechatPrograming</a>
           </li>
         
@@ -910,10 +913,6 @@ $scope.isSelected = function(e,item) {
         
           <li>
             <a href="/2017/07/27/center/">css水平居中和垂直居中</a>
-          </li>
-        
-          <li>
-            <a href="/2017/07/25/viewport/">关于viewport</a>
           </li>
         
       </ul>
