@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>:before :after | Moon of Mars</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="自从我学会了用before 和after伪元素便一发不可收拾，写啥css之前都要想想能不能用before和after来实现 before，afterbefore所有主流浏览器都支持表示在元素之前，例如  &amp;lt;div class=&quot;test1&quot;&amp;gt;你好&amp;lt;/div&amp;gt; .test1:before {     content:&quot;hello&quot; }   结果为： hello你好同理afte">
+<meta name="keywords" content="css">
+<meta property="og:type" content="article">
+<meta property="og:title" content=":before :after">
+<meta property="og:url" content="http://yoursite.com/2017/09/15/beforeAndafter/index.html">
+<meta property="og:site_name" content="Moon of Mars">
+<meta property="og:description" content="自从我学会了用before 和after伪元素便一发不可收拾，写啥css之前都要想想能不能用before和after来实现 before，afterbefore所有主流浏览器都支持表示在元素之前，例如  &amp;lt;div class=&quot;test1&quot;&amp;gt;你好&amp;lt;/div&amp;gt; .test1:before {     content:&quot;hello&quot; }   结果为： hello你好同理afte">
+<meta property="og:image" content="http://op3y7nhgg.bkt.clouddn.com/choose1.png">
+<meta property="og:updated_time" content="2017-09-15T09:49:23.429Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content=":before :after">
+<meta name="twitter:description" content="自从我学会了用before 和after伪元素便一发不可收拾，写啥css之前都要想想能不能用before和after来实现 before，afterbefore所有主流浏览器都支持表示在元素之前，例如  &amp;lt;div class=&quot;test1&quot;&amp;gt;你好&amp;lt;/div&amp;gt; .test1:before {     content:&quot;hello&quot; }   结果为： hello你好同理afte">
+<meta name="twitter:image" content="http://op3y7nhgg.bkt.clouddn.com/choose1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Moon of Mars" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Moon of Mars</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">rookie of web Engineer</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-beforeAndafter" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/09/15/beforeAndafter/" class="article-date">
+  <time datetime="2017-09-15T06:56:32.000Z" itemprop="datePublished">2017-09-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      :before :after
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="自从我学会了用before-和after伪元素"><a href="#自从我学会了用before-和after伪元素" class="headerlink" title="自从我学会了用before 和after伪元素"></a>自从我学会了用before 和after伪元素</h3><p>便一发不可收拾，写啥css之前都要想想能不能用before和after来实现</p>
+<h2 id="before，after"><a href="#before，after" class="headerlink" title="before，after"></a>before，after</h2><p>before所有主流浏览器都支持<br>表示在元素之前，例如</p>
+<pre>
+&lt;div class="test1"&gt;你好&lt;/div&gt;
+.test1:before {
+    content:"hello"
+}
+</pre>
+
+<p>结果为： hello你好<br>同理after<br>after表示在元素后面添加content</p>
+<h2 id="单冒号-与-双冒号-的区别"><a href="#单冒号-与-双冒号-的区别" class="headerlink" title="单冒号 与 双冒号 的区别"></a>单冒号 与 双冒号 的区别</h2><p>一个冒号代表 伪类，如：:hover :active :link :visited :focus :first-child :lang</p>
+<p>另一种解释是： 伪类用于向某些选择器添加特殊的效果</p>
+<p>两个冒号代表 伪元素，如： before after first-line first-letter</p>
+<p>另一种解释是：伪元素用于将特殊的效果添加到某些选择器</p>
+<p>中文的含义真的是博大精深，反正我没懂上面的那个解释</p>
+<p>所以大概的解决办法是：就用单冒号</p>
+<h3 id="使用before和after的好处"><a href="#使用before和after的好处" class="headerlink" title="使用before和after的好处"></a>使用before和after的好处</h3><h4 id="1-最近一直在写小程序，对于dom节点的要求是越精简越好，不然一直会遇到dom节点超大的报错，很是纠结，此时此刻，before和after华丽登场"><a href="#1-最近一直在写小程序，对于dom节点的要求是越精简越好，不然一直会遇到dom节点超大的报错，很是纠结，此时此刻，before和after华丽登场" class="headerlink" title="1.最近一直在写小程序，对于dom节点的要求是越精简越好，不然一直会遇到dom节点超大的报错，很是纠结，此时此刻，before和after华丽登场"></a>1.最近一直在写小程序，对于dom节点的要求是越精简越好，不然一直会遇到dom节点超大的报错，很是纠结，此时此刻，before和after华丽登场</h4><p>做个比较吧</p>
+<p><img src="http://op3y7nhgg.bkt.clouddn.com/choose1.png" alt="tuian"></p>
+<p>在之前的写法是</p>
+<pre>
+.btn {
+    border:1px solid #23beae;
+    height: 30px;
+    width: 110px;
+    line-height: 28px;
+    font-size: 12px;
+    border-radius: 5px;
+    text-align: center;
+    position: relative;
+}
+.btn img {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+&lt;div class="btn"&gt;Test&lt;img src="http://op3y7nhgg.bkt.clouddn.com/choose.png"&gt;&lt;/div&gt;
+</pre>
+
+<p>还是需要两个节点的</p>
+<p>现在的写法是：</p>
+<pre>
+    .fromCityListact {
+        color:#23beae;
+        border:1px solid #23beae;
+        width: 110px;
+        height: 30px;
+        line-height: 30px;
+        text-align:center;
+        position: relative;
+    }
+    .fromCityListact:after {
+        content: "";
+        position: absolute;
+        bottom: 2px;
+        right: 3px;
+        width: 3px;
+        height: 6px;
+        border-right: 1px solid #fff;
+        border-bottom: 1px solid #fff;
+        transform:rotate(45deg);
+    }
+    .fromCityListact:before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 0;
+        height: 0;
+        border-bottom: 15px solid #23beae;
+        border-left: 15px solid transparent;
+    }
+    &lt;div class="fromCityListact"&gt;Test2&lt;/div&gt;
+</pre>
+
+
+<p>  虽然只是少了一个节点，但是我的菜单是循环的，一百条就少了一百个节点。</p>
+<p>  慢慢的爱上了 before</p>
+<h4 id="2-0-5px-的线"><a href="#2-0-5px-的线" class="headerlink" title="2.  0.5px 的线"></a>2.  0.5px 的线</h4><pre>
+.thin-border-top {
+    position: relative;
+}
+.thin-border-top:before{
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 1px;
+    top: 0;
+    border-bottom: 1px solid #000;
+    transform-origin: 0 0;
+    transform: scale(.5,.5);
+    box-sizing: border-box
+}
+&lt;div class="thin-border-top"&gt;&lt;/div&gt;
+</pre>
+
+<h4 id="3-反正能少写一个节点是是一个"><a href="#3-反正能少写一个节点是是一个" class="headerlink" title="3.反正能少写一个节点是是一个"></a>3.反正能少写一个节点是是一个</h4>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/09/15/beforeAndafter/" data-id="cj7ln7ot00000bscbmhmok9j5" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/09/13/tetrisun/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">tetrisun</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/bootstrap/">bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小程序/">小程序</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/bootstrap/" style="font-size: 10px;">bootstrap</a> <a href="/tags/css/" style="font-size: 15px;">css</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/js/" style="font-size: 20px;">js</a> <a href="/tags/小程序/" style="font-size: 15px;">小程序</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/09/15/beforeAndafter/">:before :after</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/13/tetrisun/">tetrisun</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/12/wechatPrograming/">wechatPrograming</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/12/wechatPro/">小程序开发踩的坑</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/02/vueModal/">js对象相关</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Ting Zhai<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

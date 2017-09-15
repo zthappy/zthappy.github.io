@@ -65,6 +65,139 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-beforeAndafter" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/09/15/beforeAndafter/" class="article-date">
+  <time datetime="2017-09-15T06:56:32.000Z" itemprop="datePublished">2017-09-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/15/beforeAndafter/">:before :after</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="自从我学会了用before-和after伪元素"><a href="#自从我学会了用before-和after伪元素" class="headerlink" title="自从我学会了用before 和after伪元素"></a>自从我学会了用before 和after伪元素</h3><p>便一发不可收拾，写啥css之前都要想想能不能用before和after来实现</p>
+<h2 id="before，after"><a href="#before，after" class="headerlink" title="before，after"></a>before，after</h2><p>before所有主流浏览器都支持<br>表示在元素之前，例如</p>
+<pre>
+&lt;div class="test1"&gt;你好&lt;/div&gt;
+.test1:before {
+    content:"hello"
+}
+</pre>
+
+<p>结果为： hello你好<br>同理after<br>after表示在元素后面添加content</p>
+<h2 id="单冒号-与-双冒号-的区别"><a href="#单冒号-与-双冒号-的区别" class="headerlink" title="单冒号 与 双冒号 的区别"></a>单冒号 与 双冒号 的区别</h2><p>一个冒号代表 伪类，如：:hover :active :link :visited :focus :first-child :lang</p>
+<p>另一种解释是： 伪类用于向某些选择器添加特殊的效果</p>
+<p>两个冒号代表 伪元素，如： before after first-line first-letter</p>
+<p>另一种解释是：伪元素用于将特殊的效果添加到某些选择器</p>
+<p>中文的含义真的是博大精深，反正我没懂上面的那个解释</p>
+<p>所以大概的解决办法是：就用单冒号</p>
+<h3 id="使用before和after的好处"><a href="#使用before和after的好处" class="headerlink" title="使用before和after的好处"></a>使用before和after的好处</h3><h4 id="1-最近一直在写小程序，对于dom节点的要求是越精简越好，不然一直会遇到dom节点超大的报错，很是纠结，此时此刻，before和after华丽登场"><a href="#1-最近一直在写小程序，对于dom节点的要求是越精简越好，不然一直会遇到dom节点超大的报错，很是纠结，此时此刻，before和after华丽登场" class="headerlink" title="1.最近一直在写小程序，对于dom节点的要求是越精简越好，不然一直会遇到dom节点超大的报错，很是纠结，此时此刻，before和after华丽登场"></a>1.最近一直在写小程序，对于dom节点的要求是越精简越好，不然一直会遇到dom节点超大的报错，很是纠结，此时此刻，before和after华丽登场</h4><p>做个比较吧</p>
+<p><img src="http://op3y7nhgg.bkt.clouddn.com/choose1.png" alt="tuian"></p>
+<p>在之前的写法是</p>
+<pre>
+.btn {
+    border:1px solid #23beae;
+    height: 30px;
+    width: 110px;
+    line-height: 28px;
+    font-size: 12px;
+    border-radius: 5px;
+    text-align: center;
+    position: relative;
+}
+.btn img {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+&lt;div class="btn"&gt;Test&lt;img src="http://op3y7nhgg.bkt.clouddn.com/choose.png"&gt;&lt;/div&gt;
+</pre>
+
+<p>还是需要两个节点的</p>
+<p>现在的写法是：</p>
+<pre>
+    .fromCityListact {
+        color:#23beae;
+        border:1px solid #23beae;
+        width: 110px;
+        height: 30px;
+        line-height: 30px;
+        text-align:center;
+        position: relative;
+    }
+    .fromCityListact:after {
+        content: "";
+        position: absolute;
+        bottom: 2px;
+        right: 3px;
+        width: 3px;
+        height: 6px;
+        border-right: 1px solid #fff;
+        border-bottom: 1px solid #fff;
+        transform:rotate(45deg);
+    }
+    .fromCityListact:before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 0;
+        height: 0;
+        border-bottom: 15px solid #23beae;
+        border-left: 15px solid transparent;
+    }
+    &lt;div class="fromCityListact"&gt;Test2&lt;/div&gt;
+</pre>
+
+
+<p>  虽然只是少了一个节点，但是我的菜单是循环的，一百条就少了一百个节点。</p>
+<p>  慢慢的爱上了 before</p>
+<h4 id="2-0-5px-的线"><a href="#2-0-5px-的线" class="headerlink" title="2.  0.5px 的线"></a>2.  0.5px 的线</h4><pre>
+.thin-border-top {
+    position: relative;
+}
+.thin-border-top:before{
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 1px;
+    top: 0;
+    border-bottom: 1px solid #000;
+    transform-origin: 0 0;
+    transform: scale(.5,.5);
+    box-sizing: border-box
+}
+&lt;div class="thin-border-top"&gt;&lt;/div&gt;
+</pre>
+
+<h4 id="3-反正能少写一个节点是是一个"><a href="#3-反正能少写一个节点是是一个" class="headerlink" title="3.反正能少写一个节点是是一个"></a>3.反正能少写一个节点是是一个</h4>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/09/15/beforeAndafter/" data-id="cj7ln7ot00000bscbmhmok9j5" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-tetrisun" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/09/13/tetrisun/" class="article-date">
@@ -111,7 +244,7 @@ function updateBg(activeBlock) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/13/tetrisun/" data-id="cj7ivgcc2000508cby87494i0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/09/13/tetrisun/" data-id="cj7ln7otf0005bscblzsokk03" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
@@ -175,7 +308,7 @@ function updateBg(activeBlock) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/12/wechatPrograming/" data-id="cj7ivgcd4000q08cbayh7wsnz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/09/12/wechatPrograming/" data-id="cj7ln7ovg000tbscbhaavixk7" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/小程序/">小程序</a></li></ul>
@@ -239,7 +372,7 @@ function updateBg(activeBlock) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/12/wechatPro/" data-id="cj7ivgccg000h08cbj4aun126" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/09/12/wechatPro/" data-id="cj7ln7ots000jbscblegullro" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/小程序/">小程序</a></li></ul>
@@ -298,7 +431,7 @@ var cloneObj = function(obj){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/08/02/vueModal/" data-id="cj7ivgcce000d08cb3jvw06gr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/08/02/vueModal/" data-id="cj7ln7otn000cbscbtmy8i2j2" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
@@ -439,7 +572,7 @@ block文字居中完全没有问题，inline文字居中需要先设置display�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/27/center/" data-id="cj7ivgccj000k08cb9gf7xtdx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/27/center/" data-id="cj7ln7otu000mbscb1z8c5mn7" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
@@ -483,7 +616,7 @@ block文字居中完全没有问题，inline文字居中需要先设置display�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/25/viewport/" data-id="cj7ivgccf000f08cboe49eivh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/25/viewport/" data-id="cj7ln7otq000hbscbery6enhk" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li></ul>
@@ -550,7 +683,7 @@ css如此
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/24/igoration/" data-id="cj7ivgcca000b08cbgszggak9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/24/igoration/" data-id="cj7ln7oto000ebscb2d6zgus4" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
@@ -688,7 +821,7 @@ $scope.isSelected = function(e,item) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/17/bootstraptable/" data-id="cj7ivgcc1000408cbiynw6w9y" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/17/bootstraptable/" data-id="cj7ln7otc0004bscb4eubqjck" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bootstrap/">bootstrap</a></li></ul>
@@ -741,102 +874,7 @@ $scope.isSelected = function(e,item) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/17/closure/" data-id="cj7ivgcbo000008cb7fm4x099" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-twodivarray" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/07/13/twodivarray/" class="article-date">
-  <time datetime="2017-07-13T11:13:21.000Z" itemprop="datePublished">2017-07-13</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/13/twodivarray/">二维数组相关</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="二维数组"><a href="#二维数组" class="headerlink" title="二维数组"></a>二维数组</h2><p> 二维数组是指一维数组的每个元素也是一个数组。同理可以得出三维数组，多维数组的形式。</p>
-<h3 id="二维数组的生成"><a href="#二维数组的生成" class="headerlink" title="二维数组的生成"></a>二维数组的生成</h3><p>1.直接定义，适用于已知的并且比较简单的二维数组<br>    <pre>var arr = [[1,2,3],[4,5,6]];</pre><br>2.循环定义<br>    <pre>var arr = [];<br>    for(var i = 0; i &lt; n ; i++){<br>        arr[i] = [];<br>        for(var j = 0;j<m;j++){ arr[i][j]="value;" }="" <="" pre=""><br>其中，n,m分别代表数组的宽度和深度。<br>遍历也是如此遍历</m;j++){></pre></p>
-<h3 id="二维数组与一维数组的相互转换"><a href="#二维数组与一维数组的相互转换" class="headerlink" title="二维数组与一维数组的相互转换"></a>二维数组与一维数组的相互转换</h3><h5 id="二维-gt-一维"><a href="#二维-gt-一维" class="headerlink" title="二维 =&gt; 一维"></a>二维 =&gt; 一维</h5><pre><code>function toArr(arr){
-    var arr1 = [];
-    for(var i = 0;i&lt;arr.length;i++) {
-        for (var j = 0; j &lt; arr[i].length; j++) {
-            arr1.push(arr[i][j]);
-        }
-    }
-    console.log(arr);
-    console.log(arr1);
-    return arr1;
-}
-</code></pre><h5 id="一维-gt-二维"><a href="#一维-gt-二维" class="headerlink" title="一维 =&gt; 二维"></a>一维 =&gt; 二维</h5><pre><code>function toMatrix(i,j,arr){
-    var arr1 = [];
-    for(var k = 0;k&lt;i;k++){
-        arr1[k] = new Array();
-        for(var t = 0;t&lt;j;t++) {
-            arr1[k][t] = arr[k*i+t];
-        }
-    }
-    console.log(arr1);
-    return arr1;
-}
-</code></pre><p>二维数组对应一维数组的对应关系是 a[i][j] = b[i*arr[0].length+j];</p>
-<h3 id="二维数组的螺旋遍历"><a href="#二维数组的螺旋遍历" class="headerlink" title="二维数组的螺旋遍历"></a>二维数组的螺旋遍历</h3><pre><code>function helix(arr){
-    var start_x = 0,end_x = arr.length-1;
-    var start_y = 0,end_y = arr[0].length - 1;
-    console.log(start_x+&quot;,&quot;+end_x+&quot;,&quot;+start_y+&quot;,&quot;+end_y)
-    while(start_x &lt;= end_x &amp;&amp; start_y&lt;= end_y) {
-        var i;
-        var str1=&quot;&quot;,str2=&quot;&quot;,str3=&quot;&quot;,str4=&quot;&quot;;
-        for(i=start_y;i&lt;=end_y;i++){
-            str1 += arr[start_x][i]+&quot; &quot;;
-        }
-        console.log(str1);
-        start_x++;
-        for(i=start_x;i&lt;=end_x;i++){
-            str2 += arr[i][end_y]+&quot; &quot;
-        }
-        console.log(str2);
-        end_y--;
-        for(i=end_y;i&gt;=start_y;i--){
-            str3 += arr[end_x][i]+&quot; &quot;;
-        }
-        console.log(str3);
-        end_x--;
-        for(i=end_x;i&gt;=start_x;i--){
-            str4 += arr[i][start_y]+&quot; &quot;;
-        }
-        console.log(str4);
-        start_y++;
-    }
-}
-设计思路，设置一个x方向的头和尾，y方向的头和尾，每当走到尾，则换方向。
-</code></pre><hr>
-<p>代码地址：<a href="https://github.com/zthappy/Javascript/blob/master/Array/twodiarray.html" target="_blank" rel="external">https://github.com/zthappy/Javascript/blob/master/Array/twodiarray.html</a><br>运行：<a href="http://htmlpreview.github.io/?https://github.com/zthappy/Javascript/blob/master/Array/twodiarray.html" target="_blank" rel="external">http://htmlpreview.github.io/?https://github.com/zthappy/Javascript/blob/master/Array/twodiarray.html</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/13/twodivarray/" data-id="cj7ivgcc8000908cbmk60tijw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/17/closure/" data-id="cj7ln7ot50001bscb771swczl" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
@@ -874,7 +912,7 @@ $scope.isSelected = function(e,item) {
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/bootstrap/" style="font-size: 10px;">bootstrap</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/js/" style="font-size: 20px;">js</a> <a href="/tags/小程序/" style="font-size: 15px;">小程序</a>
+      <a href="/tags/bootstrap/" style="font-size: 10px;">bootstrap</a> <a href="/tags/css/" style="font-size: 15px;">css</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/js/" style="font-size: 20px;">js</a> <a href="/tags/小程序/" style="font-size: 15px;">小程序</a>
     </div>
   </div>
 
@@ -896,6 +934,10 @@ $scope.isSelected = function(e,item) {
       <ul>
         
           <li>
+            <a href="/2017/09/15/beforeAndafter/">:before :after</a>
+          </li>
+        
+          <li>
             <a href="/2017/09/13/tetrisun/">tetrisun</a>
           </li>
         
@@ -909,10 +951,6 @@ $scope.isSelected = function(e,item) {
         
           <li>
             <a href="/2017/08/02/vueModal/">js对象相关</a>
-          </li>
-        
-          <li>
-            <a href="/2017/07/27/center/">css水平居中和垂直居中</a>
           </li>
         
       </ul>
