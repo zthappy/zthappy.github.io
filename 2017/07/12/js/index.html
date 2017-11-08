@@ -12,6 +12,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/07/12/js/index.html">
 <meta property="og:site_name" content="Moon of Mars">
 <meta property="og:description" content="for循环最简单最通用的循环，代码如下：    for(var i = 0; i &amp;lt; arr.length;i++) {        // 代码    } 优化的for循环，代码如下：for(var i = 0, len = arr.length;i&amp;lt;len;i++) {     // 代码 } for..in 循环for(var i in arr) {     // 代码 } fo">
+<meta property="og:locale" content="En">
 <meta property="og:updated_time" content="2017-09-12T08:43:59.104Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Js 数组循环比较">
@@ -57,9 +58,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -106,7 +107,7 @@
 </code></pre><h3 id="for-of循环-es6"><a href="#for-of循环-es6" class="headerlink" title="for..of循环 es6"></a>for..of循环 es6</h3><pre><code>for(var i of arr) {
     // 代码
 }
-</code></pre><h2 id="测试代码："><a href="#测试代码：" class="headerlink" title="测试代码："></a>测试代码：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line">   function init() &#123;</div><div class="line">	var a = [];</div><div class="line">	for(var i=0;i&lt;1000000;i++)&#123;</div><div class="line">		a.push(i);</div><div class="line">	&#125;</div><div class="line">	return a;</div><div class="line">&#125;</div><div class="line">function testforEach(arr)&#123;</div><div class="line">	arr.forEach(function(e)&#123;arr[e]&#125;);</div><div class="line">&#125;</div><div class="line">function testfor(arr) &#123;</div><div class="line">	for(var i = 0; i&lt;arr.length;i++)&#123;</div><div class="line">		arr[i];</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">function testfor2(arr) &#123;</div><div class="line">	for(var i = 0,len=arr.length; i&lt;len;i++)&#123;</div><div class="line">		arr[i];</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">function testforIn(arr)&#123;</div><div class="line">	for(var i in arr) &#123;</div><div class="line">		arr[i];</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">function testmap(arr) &#123;</div><div class="line">	arr.map(function(value,index,arr)&#123;arr[index]&#125;);</div><div class="line">&#125;</div><div class="line">function testforOf(arr)&#123;</div><div class="line">	for(let index of arr)&#123;</div><div class="line">		arr[index]</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">window.onload = function()&#123;</div><div class="line">	var arr = init();</div><div class="line">	console.time(&quot;forEach&quot;);</div><div class="line">	testforEach(arr);</div><div class="line">	console.timeEnd(&quot;forEach&quot;);</div><div class="line">	console.time(&quot;for&quot;);</div><div class="line">	testfor(arr);</div><div class="line">	console.timeEnd(&quot;for&quot;);</div><div class="line">	console.time(&quot;for2&quot;);</div><div class="line">	testfor2(arr);</div><div class="line">	console.timeEnd(&quot;for2&quot;);</div><div class="line">	console.time(&quot;forIn&quot;);</div><div class="line">	testforIn(arr);</div><div class="line">	console.timeEnd(&quot;forIn&quot;);</div><div class="line">	console.time(&quot;map&quot;);</div><div class="line">	testmap(arr);</div><div class="line">	console.timeEnd(&quot;map&quot;);</div><div class="line">	console.time(&quot;forof&quot;);</div><div class="line">	testforOf(arr);</div><div class="line">	console.timeEnd(&quot;forof&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</code></pre><h2 id="测试代码："><a href="#测试代码：" class="headerlink" title="测试代码："></a>测试代码：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">   function init() &#123;</span><br><span class="line">	var a = [];</span><br><span class="line">	for(var i=0;i&lt;1000000;i++)&#123;</span><br><span class="line">		a.push(i);</span><br><span class="line">	&#125;</span><br><span class="line">	return a;</span><br><span class="line">&#125;</span><br><span class="line">function testforEach(arr)&#123;</span><br><span class="line">	arr.forEach(function(e)&#123;arr[e]&#125;);</span><br><span class="line">&#125;</span><br><span class="line">function testfor(arr) &#123;</span><br><span class="line">	for(var i = 0; i&lt;arr.length;i++)&#123;</span><br><span class="line">		arr[i];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">function testfor2(arr) &#123;</span><br><span class="line">	for(var i = 0,len=arr.length; i&lt;len;i++)&#123;</span><br><span class="line">		arr[i];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">function testforIn(arr)&#123;</span><br><span class="line">	for(var i in arr) &#123;</span><br><span class="line">		arr[i];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">function testmap(arr) &#123;</span><br><span class="line">	arr.map(function(value,index,arr)&#123;arr[index]&#125;);</span><br><span class="line">&#125;</span><br><span class="line">function testforOf(arr)&#123;</span><br><span class="line">	for(let index of arr)&#123;</span><br><span class="line">		arr[index]</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">window.onload = function()&#123;</span><br><span class="line">	var arr = init();</span><br><span class="line">	console.time(&quot;forEach&quot;);</span><br><span class="line">	testforEach(arr);</span><br><span class="line">	console.timeEnd(&quot;forEach&quot;);</span><br><span class="line">	console.time(&quot;for&quot;);</span><br><span class="line">	testfor(arr);</span><br><span class="line">	console.timeEnd(&quot;for&quot;);</span><br><span class="line">	console.time(&quot;for2&quot;);</span><br><span class="line">	testfor2(arr);</span><br><span class="line">	console.timeEnd(&quot;for2&quot;);</span><br><span class="line">	console.time(&quot;forIn&quot;);</span><br><span class="line">	testforIn(arr);</span><br><span class="line">	console.timeEnd(&quot;forIn&quot;);</span><br><span class="line">	console.time(&quot;map&quot;);</span><br><span class="line">	testmap(arr);</span><br><span class="line">	console.timeEnd(&quot;map&quot;);</span><br><span class="line">	console.time(&quot;forof&quot;);</span><br><span class="line">	testforOf(arr);</span><br><span class="line">	console.timeEnd(&quot;forof&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="性能分析"><a href="#性能分析" class="headerlink" title="性能分析"></a>性能分析</h3><p>代码运行时间：<br>forEach: 13.323974609375ms<br>for: 1.428955078125ms<br>for2: 1.48583984375ms<br>forIn: 160.415771484375ms<br>map: 155.574951171875ms<br>forof: 5.385009765625ms</p>
 <p>分析：<br>1.经过大量数据测试，普通的for循环是速度最快的<br>2.优化的for循环速度和for循环速度差不多，甚至更快一点，因为初始化length之后，就不必每次都去查询长度了。<br>3.forEach 的缺陷在于ie不支持<br>4.for..in,看上去和for循环差不多，但是差别很大，每次遇到for..in循环时，需在后台创建一个枚举器，enumerator，所以导致速度很慢<br>5.map方法创建一个新数组，返回结果是该数组中的每个元素都调用一个提供的函数后返回的结果。参数是一个回调函数，回调函数的三个参数分别是value,index,arr<br>6.for..of es6之后才能使用。</p>
 <hr>
@@ -115,7 +116,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/12/js/" data-id="cj7ln7oti0008bscbb02yifbh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/12/js/" data-id="cj9qrlhpj000aokcb98ai7srj" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
@@ -127,7 +128,7 @@
 <nav id="article-nav">
   
     <a href="/2017/07/13/twodivarray/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
+      <strong class="article-nav-caption">Récent</strong>
       <div class="article-nav-title">
         
           二维数组相关
@@ -137,7 +138,7 @@
   
   
     <a href="/2017/07/12/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
+      <strong class="article-nav-caption">Ancien</strong>
       <div class="article-nav-title">Hello World</div>
     </a>
   
@@ -155,7 +156,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
+    <h3 class="widget-title">Mot-clés</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/bootstrap/">bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小程序/">小程序</a></li></ul>
     </div>
@@ -165,9 +166,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
+    <h3 class="widget-title">Nuage de mot-clés</h3>
     <div class="widget tagcloud">
-      <a href="/tags/bootstrap/" style="font-size: 10px;">bootstrap</a> <a href="/tags/css/" style="font-size: 15px;">css</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/js/" style="font-size: 20px;">js</a> <a href="/tags/小程序/" style="font-size: 15px;">小程序</a>
+      <a href="/tags/bootstrap/" style="font-size: 10px;">bootstrap</a> <a href="/tags/css/" style="font-size: 15px;">css</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/js/" style="font-size: 20px;">js</a> <a href="/tags/小程序/" style="font-size: 10px;">小程序</a>
     </div>
   </div>
 
@@ -184,7 +185,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
         
@@ -197,15 +198,15 @@
           </li>
         
           <li>
-            <a href="/2017/09/12/wechatPrograming/">wechatPrograming</a>
-          </li>
-        
-          <li>
             <a href="/2017/09/12/wechatPro/">小程序开发踩的坑</a>
           </li>
         
           <li>
             <a href="/2017/08/02/vueModal/">js对象相关</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/27/center/">css水平居中和垂直居中</a>
           </li>
         
       </ul>
@@ -221,7 +222,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 Ting Zhai<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
