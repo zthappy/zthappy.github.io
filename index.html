@@ -53,9 +53,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -65,6 +65,156 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-nimiappModal" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/08/nimiappModal/" class="article-date">
+  <time datetime="2017-11-08T10:03:51.000Z" itemprop="datePublished">2017-11-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/08/nimiappModal/">nimiappModal</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="小程序的弹框"><a href="#小程序的弹框" class="headerlink" title="小程序的弹框"></a>小程序的弹框</h2><p><img src="http://op3y7nhgg.bkt.clouddn.com/%E5%B0%8F%E7%A8%8B%E5%BA%8Fshowmodal.png" alt="tuian"></p>
+<p>小程序的弹框对于用户的需求封装的已经很完善了，但是除了能修改按钮颜色之外，其他颜色都不能修改；<br>所以在我们设计妹妹的催促下，我们开始自定义弹框开发。</p>
+<h2 id="小程序的模板"><a href="#小程序的模板" class="headerlink" title="小程序的模板"></a>小程序的模板</h2><p>在小程序里说到复用，首先想到的便是模板<br>定义模板</p>
+<pre>
+
+    &lt;template name="msgItem"&gt;
+      &lt;view&gt;
+        &lt;text&gt; :  &lt;/text&gt;
+        &lt;text&gt; Time:  &lt;/text&gt;
+      &lt;/view&gt;
+    &lt;/template&gt;
+
+</pre>
+
+<p>使用模板</p>
+<pre>
+
+    &lt;template is="msgItem" data=""/&gt;
+
+</pre>
+
+<p>但是模板的缺点在于：真正实现复用的只是页面部分，js还需要在每个页面重写。</p>
+<h2 id="使用模板实现真正的复用弹框"><a href="#使用模板实现真正的复用弹框" class="headerlink" title="使用模板实现真正的复用弹框"></a>使用模板实现真正的复用弹框</h2><p>新建一个文件夹，新建wxml, wxss, js文件</p>
+<p>在wxml中写模板弹框</p>
+<pre>
+
+    &lt;template name="popmodel"&gt;
+        &lt;view class="mask" wx:if="isshowModel"&gt;
+            &lt;view class="modelDetail"&gt;
+               &lt;view class="title"&gt;title&lt;/view&gt;
+                &lt;view class="smalltitle" wx:if="smalltitle"&gt;smalltitle&lt;/view&gt;
+                &lt;view class="content" wx:if="content">content&lt;/view&gt;
+                &lt;view class="btngroup"&gt;
+                    &lt;view class="btncancel" bindtap="cancel" wx:if="cancelText"&gt;cancelText&lt;/view&gt;
+                    &lt;view class="btnconfirm" bindtap="confirm" wx:if="confirmText"&gt;confirmText&lt;/view&gt;
+                &lt;/view&gt;
+            &lt;/view&gt;
+        &lt;/view&gt;
+    &lt;/template&gt;
+
+</pre>
+
+<p>js中实现弹框的显示隐藏，以及回调等功能</p>
+<pre>
+
+    var cpmdata = {
+        title:"",
+        content:"",
+        isshowModel:false
+    }
+    var popModel = {
+        showModel:function(title,smalltitle,content,cancelText,confirmText,conFn){
+            var scope = this;
+            console.log(confirmText);
+            this.setData({
+                title:title,
+                smalltitle:smalltitle,
+                content:content,
+                cancelText:cancelText,
+                confirmText:confirmText,
+                conFn:conFn,
+                isshowModel: true
+            })
+        },
+        cancel:function(){
+            this.setData({
+                isshowModel:false
+            })
+        },
+        confirm:function() {
+            if(this.data.conFn){
+                this.data.conFn();
+            }
+            this.setData({
+                isshowModel:false
+            })
+        }
+
+    }
+    function PopModel(){
+        var pages = getCurrentPages();
+        var curPage = pages[pages.length - 1];
+        this._page = curPage;
+        Object.assign(curPage,popModel);
+        curPage.popModel = this;
+        curPage.setData(cpmdata);
+        return this;
+    }
+    module.exports={
+        PopModel : PopModel
+    }
+
+</pre>
+
+
+<p>关键的实现在于：<br>将其全局化，在公共css中引用</p>
+<pre> @import "/page/train/webapp/component/toastAndPop.wxss"; </pre>
+
+<p>js 全局化</p>
+<pre>
+    module.exports = {
+        ToastPannel : toastModel.ToastPannel,
+        PopModel : popModel.PopModel,
+    }
+
+</pre>
+
+
+
+
+<h2 id="调用自定义弹框"><a href="#调用自定义弹框" class="headerlink" title="调用自定义弹框"></a>调用自定义弹框</h2><p>wxml中跟原先一样引用模板<br>js中，在onload中引用 <pre>commonjs.PopModel</pre>，而后在需要使用弹框的地方，直接<pre>this.showModel(…);</pre></p>
+<p>如有疑问，联系 qq 2533369240</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/11/08/nimiappModal/" data-id="cj9qvnxl3000d30cbhgm78440" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/小程序/">小程序</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-beforeAndafter" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -187,7 +337,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/15/beforeAndafter/" data-id="cj9qrlhpa0001okcbd1ln1hn4" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/09/15/beforeAndafter/" data-id="cj9qvnxkm000030cbqxg2yhns" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
@@ -245,7 +395,7 @@ function updateBg(activeBlock) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/13/tetrisun/" data-id="cj9qrlhpm000eokcbbsy6ry99" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/09/13/tetrisun/" data-id="cj9qvnxl2000c30cb29kqel8y" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
@@ -309,7 +459,7 @@ function updateBg(activeBlock) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/12/wechatPro/" data-id="cj9qrlhpq000nokcbnhia7vvr" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/09/12/wechatPro/" data-id="cj9qvnxlh000u30cbfv8w93xv" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/小程序/">小程序</a></li></ul>
@@ -368,7 +518,7 @@ var cloneObj = function(obj){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/08/02/vueModal/" data-id="cj9qrlhpp000lokcbjm19d5nf" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/08/02/vueModal/" data-id="cj9qvnxl6000h30cbpbqyt996" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
@@ -509,7 +659,7 @@ block文字居中完全没有问题，inline文字居中需要先设置display�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/27/center/" data-id="cj9qrlhpe0004okcbg700wz8h" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/07/27/center/" data-id="cj9qvnxkr000130cb0g18p25d" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
@@ -553,7 +703,7 @@ block文字居中完全没有问题，inline文字居中需要先设置display�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/25/viewport/" data-id="cj9qrlhpo000iokcbo6c3g9r1" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/07/25/viewport/" data-id="cj9qvnxl7000k30cbe9ryg9vm" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li></ul>
@@ -620,7 +770,7 @@ css如此
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/24/igoration/" data-id="cj9qrlhph0009okcb2jtjiupo" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/07/24/igoration/" data-id="cj9qvnxkz000830cbwc93cxu5" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
@@ -758,7 +908,7 @@ $scope.isSelected = function(e,item) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/17/bootstraptable/" data-id="cj9qrlhpc0002okcbc3bsb8fi" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/07/17/bootstraptable/" data-id="cj9qvnxku000330cbk21gstpx" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bootstrap/">bootstrap</a></li></ul>
@@ -811,102 +961,7 @@ $scope.isSelected = function(e,item) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/17/closure/" data-id="cj9qrlhpg0006okcbaerwf87o" class="article-share-link">Partager</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-twodivarray" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/07/13/twodivarray/" class="article-date">
-  <time datetime="2017-07-13T11:13:21.000Z" itemprop="datePublished">2017-07-13</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/13/twodivarray/">二维数组相关</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="二维数组"><a href="#二维数组" class="headerlink" title="二维数组"></a>二维数组</h2><p> 二维数组是指一维数组的每个元素也是一个数组。同理可以得出三维数组，多维数组的形式。</p>
-<h3 id="二维数组的生成"><a href="#二维数组的生成" class="headerlink" title="二维数组的生成"></a>二维数组的生成</h3><p>1.直接定义，适用于已知的并且比较简单的二维数组<br>    <pre>var arr = [[1,2,3],[4,5,6]];</pre><br>2.循环定义<br>    <pre>var arr = [];<br>    for(var i = 0; i &lt; n ; i++){<br>        arr[i] = [];<br>        for(var j = 0;j<m;j++){ arr[i][j]="value;" }="" <="" pre=""><br>其中，n,m分别代表数组的宽度和深度。<br>遍历也是如此遍历</m;j++){></pre></p>
-<h3 id="二维数组与一维数组的相互转换"><a href="#二维数组与一维数组的相互转换" class="headerlink" title="二维数组与一维数组的相互转换"></a>二维数组与一维数组的相互转换</h3><h5 id="二维-gt-一维"><a href="#二维-gt-一维" class="headerlink" title="二维 =&gt; 一维"></a>二维 =&gt; 一维</h5><pre><code>function toArr(arr){
-    var arr1 = [];
-    for(var i = 0;i&lt;arr.length;i++) {
-        for (var j = 0; j &lt; arr[i].length; j++) {
-            arr1.push(arr[i][j]);
-        }
-    }
-    console.log(arr);
-    console.log(arr1);
-    return arr1;
-}
-</code></pre><h5 id="一维-gt-二维"><a href="#一维-gt-二维" class="headerlink" title="一维 =&gt; 二维"></a>一维 =&gt; 二维</h5><pre><code>function toMatrix(i,j,arr){
-    var arr1 = [];
-    for(var k = 0;k&lt;i;k++){
-        arr1[k] = new Array();
-        for(var t = 0;t&lt;j;t++) {
-            arr1[k][t] = arr[k*i+t];
-        }
-    }
-    console.log(arr1);
-    return arr1;
-}
-</code></pre><p>二维数组对应一维数组的对应关系是 a[i][j] = b[i*arr[0].length+j];</p>
-<h3 id="二维数组的螺旋遍历"><a href="#二维数组的螺旋遍历" class="headerlink" title="二维数组的螺旋遍历"></a>二维数组的螺旋遍历</h3><pre><code>function helix(arr){
-    var start_x = 0,end_x = arr.length-1;
-    var start_y = 0,end_y = arr[0].length - 1;
-    console.log(start_x+&quot;,&quot;+end_x+&quot;,&quot;+start_y+&quot;,&quot;+end_y)
-    while(start_x &lt;= end_x &amp;&amp; start_y&lt;= end_y) {
-        var i;
-        var str1=&quot;&quot;,str2=&quot;&quot;,str3=&quot;&quot;,str4=&quot;&quot;;
-        for(i=start_y;i&lt;=end_y;i++){
-            str1 += arr[start_x][i]+&quot; &quot;;
-        }
-        console.log(str1);
-        start_x++;
-        for(i=start_x;i&lt;=end_x;i++){
-            str2 += arr[i][end_y]+&quot; &quot;
-        }
-        console.log(str2);
-        end_y--;
-        for(i=end_y;i&gt;=start_y;i--){
-            str3 += arr[end_x][i]+&quot; &quot;;
-        }
-        console.log(str3);
-        end_x--;
-        for(i=end_x;i&gt;=start_x;i--){
-            str4 += arr[i][start_y]+&quot; &quot;;
-        }
-        console.log(str4);
-        start_y++;
-    }
-}
-设计思路，设置一个x方向的头和尾，y方向的头和尾，每当走到尾，则换方向。
-</code></pre><hr>
-<p>代码地址：<a href="https://github.com/zthappy/Javascript/blob/master/Array/twodiarray.html" target="_blank" rel="external">https://github.com/zthappy/Javascript/blob/master/Array/twodiarray.html</a><br>运行：<a href="http://htmlpreview.github.io/?https://github.com/zthappy/Javascript/blob/master/Array/twodiarray.html" target="_blank" rel="external">http://htmlpreview.github.io/?https://github.com/zthappy/Javascript/blob/master/Array/twodiarray.html</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/13/twodivarray/" data-id="cj9qrlhpn000gokcb2i95ufmq" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/07/17/closure/" data-id="cj9qvnxkv000430cb3nbs7ip8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
@@ -932,7 +987,7 @@ $scope.isSelected = function(e,item) {
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Mot-clés</h3>
+    <h3 class="widget-title">Tags</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/bootstrap/">bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小程序/">小程序</a></li></ul>
     </div>
@@ -942,9 +997,9 @@ $scope.isSelected = function(e,item) {
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/bootstrap/" style="font-size: 10px;">bootstrap</a> <a href="/tags/css/" style="font-size: 15px;">css</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/js/" style="font-size: 20px;">js</a> <a href="/tags/小程序/" style="font-size: 10px;">小程序</a>
+      <a href="/tags/bootstrap/" style="font-size: 10px;">bootstrap</a> <a href="/tags/css/" style="font-size: 15px;">css</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/js/" style="font-size: 20px;">js</a> <a href="/tags/小程序/" style="font-size: 15px;">小程序</a>
     </div>
   </div>
 
@@ -953,7 +1008,7 @@ $scope.isSelected = function(e,item) {
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li></ul>
     </div>
   </div>
 
@@ -961,9 +1016,13 @@ $scope.isSelected = function(e,item) {
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/11/08/nimiappModal/">nimiappModal</a>
+          </li>
         
           <li>
             <a href="/2017/09/15/beforeAndafter/">:before :after</a>
@@ -981,10 +1040,6 @@ $scope.isSelected = function(e,item) {
             <a href="/2017/08/02/vueModal/">js对象相关</a>
           </li>
         
-          <li>
-            <a href="/2017/07/27/center/">css水平居中和垂直居中</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -998,7 +1053,7 @@ $scope.isSelected = function(e,item) {
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 Ting Zhai<br>
-      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
