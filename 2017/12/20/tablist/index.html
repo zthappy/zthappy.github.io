@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>js对象相关 | Moon of Mars</title>
+  <title>tablist | Moon of Mars</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="对象的拷贝 深拷贝和浅拷贝 实现深拷贝  var cloneObj = function(obj){     var str, newobj = obj.constructor === Array ? [] : {};     if(typeof obj !== &apos;object&apos;){         return;     } else if(window.JSON){         str =">
-<meta name="keywords" content="js">
+  <meta name="description" content="细节1.ios滑动较卡解决办法：css:-webkit-overflow-scrolling: touch;2.横向滚动条滑不到底解决方法：css:box-sizing:border-box;3.背景滚动问题目前的解决办法v-on:touchmove prevent4.切换tab滚动条位置问题window scrollTo(0,0)5.滚动条尽量使用html的滚动条？？6.vue 组件传值问题">
+<meta name="keywords" content="vue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js对象相关">
-<meta property="og:url" content="http://yoursite.com/2017/08/02/vueModal/index.html">
+<meta property="og:title" content="tablist">
+<meta property="og:url" content="http://yoursite.com/2017/12/20/tablist/index.html">
 <meta property="og:site_name" content="Moon of Mars">
-<meta property="og:description" content="对象的拷贝 深拷贝和浅拷贝 实现深拷贝  var cloneObj = function(obj){     var str, newobj = obj.constructor === Array ? [] : {};     if(typeof obj !== &apos;object&apos;){         return;     } else if(window.JSON){         str =">
+<meta property="og:description" content="细节1.ios滑动较卡解决办法：css:-webkit-overflow-scrolling: touch;2.横向滚动条滑不到底解决方法：css:box-sizing:border-box;3.背景滚动问题目前的解决办法v-on:touchmove prevent4.切换tab滚动条位置问题window scrollTo(0,0)5.滚动条尽量使用html的滚动条？？6.vue 组件传值问题">
 <meta property="og:locale" content="En">
-<meta property="og:updated_time" content="2017-09-12T08:43:52.018Z">
+<meta property="og:updated_time" content="2017-12-20T12:39:33.269Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="js对象相关">
-<meta name="twitter:description" content="对象的拷贝 深拷贝和浅拷贝 实现深拷贝  var cloneObj = function(obj){     var str, newobj = obj.constructor === Array ? [] : {};     if(typeof obj !== &apos;object&apos;){         return;     } else if(window.JSON){         str =">
+<meta name="twitter:title" content="tablist">
+<meta name="twitter:description" content="细节1.ios滑动较卡解决办法：css:-webkit-overflow-scrolling: touch;2.横向滚动条滑不到底解决方法：css:box-sizing:border-box;3.背景滚动问题目前的解决办法v-on:touchmove prevent4.切换tab滚动条位置问题window scrollTo(0,0)5.滚动条尽量使用html的滚动条？？6.vue 组件传值问题">
   
     <link rel="alternate" href="/atom.xml" title="Moon of Mars" type="application/atom+xml">
   
@@ -69,10 +69,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-vueModal" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-tablist" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/08/02/vueModal/" class="article-date">
-  <time datetime="2017-08-02T06:00:01.000Z" itemprop="datePublished">2017-08-02</time>
+    <a href="/2017/12/20/tablist/" class="article-date">
+  <time datetime="2017-12-20T11:55:46.000Z" itemprop="datePublished">2017-12-20</time>
 </a>
     
   </div>
@@ -83,7 +83,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      js对象相关
+      tablist
     </h1>
   
 
@@ -91,35 +91,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>对象的拷贝</p>
-<p>深拷贝和浅拷贝</p>
-<p>实现深拷贝</p>
-<pre>
-var cloneObj = function(obj){
-    var str, newobj = obj.constructor === Array ? [] : {};
-    if(typeof obj !== 'object'){
-        return;
-    } else if(window.JSON){
-        str = JSON.stringify(obj), //系列化对象
-        newobj = JSON.parse(str); //还原
-    } else {
-        for(var i in obj){
-            newobj[i] = typeof obj[i] === 'object' ?
-            cloneObj(obj[i]) : obj[i];
-        }
-    }
-    return newobj;
-};
-</pre>
-
+        <h3 id="细节"><a href="#细节" class="headerlink" title="细节"></a>细节</h3><p>1.ios滑动较卡<br>解决办法：<br>css:-webkit-overflow-scrolling: touch;<br>2.横向滚动条滑不到底<br>解决方法：<br>css:box-sizing:border-box;<br>3.背景滚动问题<br>目前的解决办法<br>v-on:touchmove prevent<br>4.切换tab滚动条位置问题<br>window scrollTo(0,0)<br>5.滚动条尽量使用html的滚动条？？<br>6.vue 组件传值问题</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/08/02/vueModal/" data-id="cjbf1ppvj000hlocbppl422ht" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/20/tablist/" data-id="cjbf1ppvg000clocbh8p8oexg" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
 
     </footer>
   </div>
@@ -127,19 +107,10 @@ var cloneObj = function(obj){
     
 <nav id="article-nav">
   
-    <a href="/2017/09/12/wechatPro/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          小程序开发踩的坑
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/07/27/center/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/11/08/nimiappModal/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">css水平居中和垂直居中</div>
+      <div class="article-nav-title">nimiappModal</div>
     </a>
   
 </nav>
