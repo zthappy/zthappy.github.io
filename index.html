@@ -66,6 +66,88 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-scrollsolution" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/03/scrollsolution/" class="article-date">
+  <time datetime="2018-01-03T06:31:58.000Z" itemprop="datePublished">2018-01-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/03/scrollsolution/">scrollsolution</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-滚动条"><a href="#1-滚动条" class="headerlink" title="1.滚动条"></a>1.滚动条</h2><p>第一种：不设定高度，自动撑开时，成为最原始的滚动条<br>第二种：设定高度，并且设定滚动，成为当前元素的滚动条</p>
+<pre>
+    height:300px;
+    overflow:auto;
+</pre>
+
+<p>地址：<a href="https://github.com/zthappy/Javascript/blob/master/Scroll/demo1.html" target="_blank" rel="external">https://github.com/zthappy/Javascript/blob/master/Scroll/demo1.html</a></p>
+<h2 id="2-背景有滚动条，同时有弹出层，禁止背景滚动"><a href="#2-背景有滚动条，同时有弹出层，禁止背景滚动" class="headerlink" title="2.背景有滚动条，同时有弹出层，禁止背景滚动"></a>2.背景有滚动条，同时有弹出层，禁止背景滚动</h2><p>解决方案:在弹出弹框的时候将背景设置为禁止滚动，在电脑上看是没问题的，但是在手机端仍然在滚动<br>还要再阻止冒泡</p>
+<pre>
+    function openPop() {
+        document.querySelector(".pop").style.display = "block";
+        document.querySelector("body").style.overflow = "hidden";
+    }
+    function closePop() {
+        document.querySelector(".pop").style.display = "none";
+        document.querySelector("body").style.overflow = "";
+    }
+    // 对弹框浮层监听
+    document.querySelector(".popup").addEventListener("touchmove",function(e){
+        e.preventDefault();
+    })
+</pre>
+在微信端下拉会有黑色背景，浏览器端无
+地址：https://github.com/zthappy/Javascript/blob/master/Scroll/demo2.html
+
+
+## 3.弹框也有滚动，在弹框滚动时禁止背景滚动
+
+第一种解决方案
+对浮层监听touchstart事件，判断当touchstart时处于边界状态，则用js主动scroll 1px，离开边界
+在第二种情况下添加代码
+<pre>
+var dialogContent = document.querySelector('.popcon');
+dialogContent.addEventListener('touchstart', function () {
+  if (dialogContent.scrollTop === 0) { // 上边界
+    dialogContent.scrollTop = 1;
+  } else if (dialogContent.scrollTop === dialogContent.scrollHeight - dialogContent.offsetHeight) { // 下边界
+    dialogContent.scrollTop -= 1;
+  }
+});
+</pre>
+
+<p>地址：<a href="https://github.com/zthappy/Javascript/blob/master/Scroll/demo3.html" target="_blank" rel="external">https://github.com/zthappy/Javascript/blob/master/Scroll/demo3.html</a></p>
+<p>注意事项：<br>如果对ios非原生滚动添加了<pre>-webkit-overflow-scrolling: touch;</pre>这个属性，在ios滚动会变得很流畅，但是也会导致背景滚动的问题仍然出现，但是几率不大</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/03/scrollsolution/" data-id="cjc0be0p40003fccbw8hcysda" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/scroll/">scroll</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-summarise" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/12/26/summarise/" class="article-date">
@@ -93,7 +175,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/26/summarise/" data-id="cjbnppou50004yscbvos0kj7e" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/26/summarise/" data-id="cjc0be0p90009fccbsdl3kb58" class="article-share-link">Share</a>
       
       
     </footer>
@@ -130,7 +212,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/20/tablist/" data-id="cjbnppoua0009yscbcw06nccb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/20/tablist/" data-id="cjc0be0pd000hfccby6q4qpib" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
@@ -280,7 +362,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/08/nimiappModal/" data-id="cjbnppout000xyscbqywj0snh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/08/nimiappModal/" data-id="cjc0be0pe000jfccb1nvyqn5d" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/小程序/">小程序</a></li></ul>
@@ -413,7 +495,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/15/beforeAndafter/" data-id="cjbnppotk0000yscb0qnpubtr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/09/15/beforeAndafter/" data-id="cjc0be0ow0000fccbimuhwahv" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
@@ -471,7 +553,7 @@ function updateBg(activeBlock) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/13/tetrisun/" data-id="cjbnppouh000lyscbt0se483z" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/09/13/tetrisun/" data-id="cjc0be0pb000efccbb7hkwhf0" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
@@ -535,7 +617,7 @@ function updateBg(activeBlock) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/12/wechatPro/" data-id="cjbnppouj000pyscbgoj7bmow" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/09/12/wechatPro/" data-id="cjc0be0pj000tfccbvre4rm20" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/小程序/">小程序</a></li></ul>
@@ -594,7 +676,7 @@ var cloneObj = function(obj){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/08/02/vueModal/" data-id="cjbnppouf000gyscblnkhxi4q" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/08/02/vueModal/" data-id="cjc0be0pi000qfccbwvxsky54" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
@@ -735,7 +817,7 @@ block文字居中完全没有问题，inline文字居中需要先设置display�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/27/center/" data-id="cjbnppou80008yscbnaigr7yb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/27/center/" data-id="cjc0be0pa000cfccbyq0hffqo" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
@@ -779,77 +861,10 @@ block文字居中完全没有问题，inline文字居中需要先设置display�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/25/viewport/" data-id="cjbnppoui000nyscba7ezxgc2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/25/viewport/" data-id="cjc0be0qb000yfccbm44qbjs0" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-igoration" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/07/24/igoration/" class="article-date">
-  <time datetime="2017-07-24T08:32:23.000Z" itemprop="datePublished">2017-07-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/24/igoration/">js忽略的一些细节</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-A-style-left"><a href="#1-A-style-left" class="headerlink" title="1.A.style.left"></a>1.A.style.left</h2><p>html如此</p>
-<pre>
-    &lt;div class="smallkedu" id="move"$gt;1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9&lt;/div&gt;
-</pre>
-css如此
-<pre>
-    #move {
-        background-color: #fff;
-        height: 40px;
-        width: 2080px;
-        position: absolute;
-        bottom:5px;
-        left:0;
-    }
-</pre>
-毫无毛病，我现在想要在js种获取css的某个值，js如此
-<pre>
-    var movediv = document.getElementById("move");
-    var x = movediv.style.left;
-    console.log(x);
-</pre>
-也毫无毛病，但是控制台就是打印不出left值；
-我设置 movediv.style.backgroundColor = #fff
-实现了颜色变化，所以说明我的语法没有问题。
-上网搜索了很久，终于找到答案：
- A.style.left 只针对行内样式;
- 所以将 html改成以下方式即可
- <pre>
-    &lt;div class="smallkedu" id="move" style="left:0"&gt;1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9&lt;/div&gt;
- </pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/24/igoration/" data-id="cjbnppou60005yscb1azcptd1" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
 
     </footer>
   </div>
@@ -874,7 +889,7 @@ css如此
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/bootstrap/">bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小程序/">小程序</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/bootstrap/">bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/scroll/">scroll</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小程序/">小程序</a></li></ul>
     </div>
   </div>
 
@@ -884,7 +899,7 @@ css如此
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/bootstrap/" style="font-size: 10px;">bootstrap</a> <a href="/tags/css/" style="font-size: 15px;">css</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/js/" style="font-size: 20px;">js</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/小程序/" style="font-size: 15px;">小程序</a>
+      <a href="/tags/bootstrap/" style="font-size: 10px;">bootstrap</a> <a href="/tags/css/" style="font-size: 15px;">css</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/js/" style="font-size: 20px;">js</a> <a href="/tags/scroll/" style="font-size: 10px;">scroll</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/小程序/" style="font-size: 15px;">小程序</a>
     </div>
   </div>
 
@@ -893,7 +908,7 @@ css如此
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li></ul>
     </div>
   </div>
 
@@ -904,6 +919,10 @@ css如此
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/01/03/scrollsolution/">scrollsolution</a>
+          </li>
         
           <li>
             <a href="/2017/12/26/summarise/">summarise</a>
@@ -921,10 +940,6 @@ css如此
             <a href="/2017/09/15/beforeAndafter/">:before :after</a>
           </li>
         
-          <li>
-            <a href="/2017/09/13/tetrisun/">tetrisun</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -937,7 +952,7 @@ css如此
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2017 Ting Zhai<br>
+      &copy; 2018 Ting Zhai<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
