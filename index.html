@@ -66,6 +66,89 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-cookie" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/05/cookie/" class="article-date">
+  <time datetime="2018-01-05T06:58:51.000Z" itemprop="datePublished">2018-01-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/05/cookie/">javascript 中的 cookie</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="cookie的定义"><a href="#cookie的定义" class="headerlink" title="cookie的定义"></a>cookie的定义</h2><p>Cookie 用于存储web页面的用户信息。<br>cookie 是一些数据，存储于电脑上的文本文件中<br>当web服务器向浏览器发送web页面时，在连接关闭后，服务端不会记录用户的信息。<br>cookie 的作用就是解决  如何记录客户端的用户信息</p>
+<h2 id="创建cookie、修改cookie"><a href="#创建cookie、修改cookie" class="headerlink" title="创建cookie、修改cookie"></a>创建cookie、修改cookie</h2><pre>
+// 一般创建
+document.cookie = "name = zhaiting"
+// 带过期时间,UTC或者GMT时间
+document.cookie = "name = zhaiitng;expires=Thu, 18 Dec 2013 12:00:00 GMT"
+// 使用path 路径告诉浏览器 cookie 的路径
+document.cookie = "name = zhaiting;path=/"
+</pre>
+
+
+<h2 id="读取cookie"><a href="#读取cookie" class="headerlink" title="读取cookie"></a>读取cookie</h2><pre>
+var x = document.cookie
+</pre>
+返回结果是 字符串形式的 xxx = xxxx
+例如，在百度首页读取cookie，返回的结果是
+<pre>
+"BD_UPN=12314353; ispeed_lsm=0; sugstore=1;
+ BAIDUID=1DFBE488DFD92A8CEE6D6DE3356A0477:FG=1;
+  PSTM=1513848750; BIDUPSID=86EBB9410EE81BAF60041C2C26ADD45B;
+  BDORZ=B490B5EBF6F3CD402E515D22BCDA1598; pgv_pvi=5846578176;
+  BD_HOME=0; H_PS_PSSID=1448_21105_17001_22160; BD_CK_SAM=1; PSINO=3;
+  shifen[59582711632_98017]=1515120617; BCLID=10290040352333046040;
+  BDSFRCVID=fL_sJeC629n_JGOAE9NrJdODJ2K-uKbTH6aofFj7jBEqt1eXqnnXEG0PqM8g0Kub_9YlogKKL2OTHmrP; "
+</pre>
+
+
+<h2 id="删除cookie"><a href="#删除cookie" class="headerlink" title="删除cookie"></a>删除cookie</h2><p>设置过期时间为以前的时间</p>
+<p>完整实例：</p>
+<pre>
+function setCookie(cname,cvalue,exdays)
+{
+  var d = new Date();
+  d.setTime(d.getTime()+(exdays*24*60*60*1000));
+  var expires = "expires="+d.toGMTString();
+  document.cookie = cname + "=" + cvalue + "; " + expires;
+}
+
+function getCookie(cname)
+{
+  var name = cname + "=";
+  var ca = document.cookie.split(';');
+  for(var i=0; i<ca.length; i++)="" {="" var="" c="ca[i].trim();" if="" (c.indexof(name)="=0)" return="" c.substring(name.length,c.length);="" }="" "";="" function="" checkcookie()="" user="getCookie("username");" (user!="" )="" alert("welcome="" again="" "="" +="" user);="" else="" enter="" your="" name:","");="" &&="" user!="null)" setcookie("username",user,365);="" <="" pre="">
+
+
+<p>chorme 浏览器的cookies</p>
+<p>name   名称<br>value  值<br>domain 域<br>path<br>expires 过期时间<br>size<br>http<br>secure<br>samesite</p>
+</ca.length;></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/05/cookie/" data-id="cjc1oxbco0000r8cb8r2dsn5b" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-scrollsolution" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/01/03/scrollsolution/" class="article-date">
@@ -80,7 +163,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/03/scrollsolution/">scrollsolution</a>
+      <a class="article-title" href="/2018/01/03/scrollsolution/">滚动相关</a>
     </h1>
   
 
@@ -136,7 +219,7 @@ dialogContent.addEventListener('touchstart', function () {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/03/scrollsolution/" data-id="cjc0be0p40003fccbw8hcysda" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/03/scrollsolution/" data-id="cjc1oxbds000fr8cbi9on6hhb" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/scroll/">scroll</a></li></ul>
@@ -175,7 +258,7 @@ dialogContent.addEventListener('touchstart', function () {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/26/summarise/" data-id="cjc0be0p90009fccbsdl3kb58" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/26/summarise/" data-id="cjc1oxbdi0009r8cb33uzhe0a" class="article-share-link">Share</a>
       
       
     </footer>
@@ -212,7 +295,7 @@ dialogContent.addEventListener('touchstart', function () {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/20/tablist/" data-id="cjc0be0pd000hfccby6q4qpib" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/20/tablist/" data-id="cjc1oxbe1000qr8cbhttbry18" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
@@ -362,7 +445,7 @@ dialogContent.addEventListener('touchstart', function () {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/08/nimiappModal/" data-id="cjc0be0pe000jfccb1nvyqn5d" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/08/nimiappModal/" data-id="cjc1oxbdt000gr8cbrzhegq40" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/小程序/">小程序</a></li></ul>
@@ -495,7 +578,7 @@ dialogContent.addEventListener('touchstart', function () {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/15/beforeAndafter/" data-id="cjc0be0ow0000fccbimuhwahv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/09/15/beforeAndafter/" data-id="cjc1oxbda0001r8cbrk0py1sx" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
@@ -521,7 +604,7 @@ dialogContent.addEventListener('touchstart', function () {
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/13/tetrisun/">tetrisun</a>
+      <a class="article-title" href="/2017/09/13/tetrisun/">俄罗斯方块</a>
     </h1>
   
 
@@ -553,7 +636,7 @@ function updateBg(activeBlock) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/13/tetrisun/" data-id="cjc0be0pb000efccbb7hkwhf0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/09/13/tetrisun/" data-id="cjc1oxbdv000ir8cb68s1b907" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
@@ -617,7 +700,7 @@ function updateBg(activeBlock) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/12/wechatPro/" data-id="cjc0be0pj000tfccbvre4rm20" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/09/12/wechatPro/" data-id="cjc1oxbf1000wr8cb0tuovzn1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/小程序/">小程序</a></li></ul>
@@ -676,7 +759,7 @@ var cloneObj = function(obj){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/08/02/vueModal/" data-id="cjc0be0pi000qfccbwvxsky54" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/08/02/vueModal/" data-id="cjc1oxbdz000or8cbtks1bnin" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
@@ -817,54 +900,10 @@ block文字居中完全没有问题，inline文字居中需要先设置display�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/27/center/" data-id="cjc0be0pa000cfccbyq0hffqo" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/27/center/" data-id="cjc1oxbdw000jr8cbv3zcdapj" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-viewport" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/07/25/viewport/" class="article-date">
-  <time datetime="2017-07-25T07:22:07.000Z" itemprop="datePublished">2017-07-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/25/viewport/">关于viewport</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="什么是viewport"><a href="#什么是viewport" class="headerlink" title="什么是viewport"></a>什么是viewport</h3><p>viewport 是用户网页的可视区域。</p>
-<h3 id="viewport-meta-标签"><a href="#viewport-meta-标签" class="headerlink" title="viewport meta 标签"></a>viewport meta 标签</h3><p><pre>&lt;meta name=”viewport” content=”width=device-width, initial-scale=1.0”&gt;</pre><br>width：控制 viewport 的大小，可以指定的一个值，如果 600，或者特殊的值，如 device-width 为设备的宽度（单位为缩放为 100% 时的 CSS 的像素）。<br>height：和 width 相对应，指定高度。<br>initial-scale：初始缩放比例，也即是当页面第一次 load 的时候缩放比例。<br>maximum-scale：允许用户缩放到的最大比例。<br>minimum-scale：允许用户缩放到的最小比例。<br>user-scalable：用户是否可以手动缩放。</p>
-<h3 id="使用viewport适配屏幕"><a href="#使用viewport适配屏幕" class="headerlink" title="使用viewport适配屏幕"></a>使用viewport适配屏幕</h3><p>移动端适配的方法：<br>1.高度固定，宽度自适应<br>2.宽度固定，使用viewport缩放<br>3.宽度rem，viewport缩放</p>
-<h4 id="高度固定，宽度自适应"><a href="#高度固定，宽度自适应" class="headerlink" title="高度固定，宽度自适应"></a>高度固定，宽度自适应</h4><p><pre>&lt;meta name=”viewport” content=”width=device-width,initial-scale=1”&gt;</pre><br>如此设置之后，高度固定，宽度用百分比、定值或者flex都可以。</p>
-<h4 id="宽度固定，使用viewport缩放"><a href="#宽度固定，使用viewport缩放" class="headerlink" title="宽度固定，使用viewport缩放"></a>宽度固定，使用viewport缩放</h4><p><pre>&lt;meta name=”viewport” content=”width=640,initial-scale=0.5,maximum-scale=0.5,minimum-scale=0.5,user-scalable=no”&gt;</pre><br>width=640可以换成任意数值，viewport会根据不同屏幕缩放</p>
-<h4 id="宽度rem，viewport缩放"><a href="#宽度rem，viewport缩放" class="headerlink" title="宽度rem，viewport缩放"></a>宽度rem，viewport缩放</h4><p>根据屏幕宽度设定 rem 值，需要适配的元素都使用 rem 为单位，不需要适配的元素还是使用 px 为单位。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/25/viewport/" data-id="cjc0be0qb000yfccbm44qbjs0" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li></ul>
 
     </footer>
   </div>
@@ -921,7 +960,11 @@ block文字居中完全没有问题，inline文字居中需要先设置display�
       <ul>
         
           <li>
-            <a href="/2018/01/03/scrollsolution/">scrollsolution</a>
+            <a href="/2018/01/05/cookie/">javascript 中的 cookie</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/03/scrollsolution/">滚动相关</a>
           </li>
         
           <li>
@@ -934,10 +977,6 @@ block文字居中完全没有问题，inline文字居中需要先设置display�
         
           <li>
             <a href="/2017/11/08/nimiappModal/">nimiappModal</a>
-          </li>
-        
-          <li>
-            <a href="/2017/09/15/beforeAndafter/">:before :after</a>
           </li>
         
       </ul>

@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>summarise | Moon of Mars</title>
+  <title>javascript 中的 cookie | Moon of Mars</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
-<meta property="og:title" content="summarise">
-<meta property="og:url" content="http://yoursite.com/2017/12/26/summarise/index.html">
+  <meta name="description" content="cookie的定义Cookie 用于存储web页面的用户信息。cookie 是一些数据，存储于电脑上的文本文件中当web服务器向浏览器发送web页面时，在连接关闭后，服务端不会记录用户的信息。cookie 的作用就是解决  如何记录客户端的用户信息 创建cookie、修改cookie // 一般创建 document.cookie = &quot;name = zhaiting&quot; // 带过期时间,UTC或">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript 中的 cookie">
+<meta property="og:url" content="http://yoursite.com/2018/01/05/cookie/index.html">
 <meta property="og:site_name" content="Moon of Mars">
+<meta property="og:description" content="cookie的定义Cookie 用于存储web页面的用户信息。cookie 是一些数据，存储于电脑上的文本文件中当web服务器向浏览器发送web页面时，在连接关闭后，服务端不会记录用户的信息。cookie 的作用就是解决  如何记录客户端的用户信息 创建cookie、修改cookie // 一般创建 document.cookie = &quot;name = zhaiting&quot; // 带过期时间,UTC或">
 <meta property="og:locale" content="En">
-<meta property="og:image" content="http://op3yiz9qr.bkt.clouddn.com/summarize.png">
-<meta property="og:image" content="http://op3yiz9qr.bkt.clouddn.com/summarise2.png">
-<meta property="og:updated_time" content="2017-12-26T14:13:30.627Z">
+<meta property="og:updated_time" content="2018-01-05T08:59:37.435Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="summarise">
-<meta name="twitter:image" content="http://op3yiz9qr.bkt.clouddn.com/summarize.png">
+<meta name="twitter:title" content="javascript 中的 cookie">
+<meta name="twitter:description" content="cookie的定义Cookie 用于存储web页面的用户信息。cookie 是一些数据，存储于电脑上的文本文件中当web服务器向浏览器发送web页面时，在连接关闭后，服务端不会记录用户的信息。cookie 的作用就是解决  如何记录客户端的用户信息 创建cookie、修改cookie // 一般创建 document.cookie = &quot;name = zhaiting&quot; // 带过期时间,UTC或">
   
     <link rel="alternate" href="/atom.xml" title="Moon of Mars" type="application/atom+xml">
   
@@ -68,10 +68,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-summarise" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-cookie" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/12/26/summarise/" class="article-date">
-  <time datetime="2017-12-26T13:59:16.000Z" itemprop="datePublished">2017-12-26</time>
+    <a href="/2018/01/05/cookie/" class="article-date">
+  <time datetime="2018-01-05T06:58:51.000Z" itemprop="datePublished">2018-01-05</time>
 </a>
     
   </div>
@@ -82,7 +82,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      summarise
+      javascript 中的 cookie
     </h1>
   
 
@@ -90,12 +90,58 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="http://op3yiz9qr.bkt.clouddn.com/summarize.png" alt="tuian"><br><img src="http://op3yiz9qr.bkt.clouddn.com/summarise2.png" alt="tuian"></p>
+        <h2 id="cookie的定义"><a href="#cookie的定义" class="headerlink" title="cookie的定义"></a>cookie的定义</h2><p>Cookie 用于存储web页面的用户信息。<br>cookie 是一些数据，存储于电脑上的文本文件中<br>当web服务器向浏览器发送web页面时，在连接关闭后，服务端不会记录用户的信息。<br>cookie 的作用就是解决  如何记录客户端的用户信息</p>
+<h2 id="创建cookie、修改cookie"><a href="#创建cookie、修改cookie" class="headerlink" title="创建cookie、修改cookie"></a>创建cookie、修改cookie</h2><pre>
+// 一般创建
+document.cookie = "name = zhaiting"
+// 带过期时间,UTC或者GMT时间
+document.cookie = "name = zhaiitng;expires=Thu, 18 Dec 2013 12:00:00 GMT"
+// 使用path 路径告诉浏览器 cookie 的路径
+document.cookie = "name = zhaiting;path=/"
+</pre>
 
+
+<h2 id="读取cookie"><a href="#读取cookie" class="headerlink" title="读取cookie"></a>读取cookie</h2><pre>
+var x = document.cookie
+</pre>
+返回结果是 字符串形式的 xxx = xxxx
+例如，在百度首页读取cookie，返回的结果是
+<pre>
+"BD_UPN=12314353; ispeed_lsm=0; sugstore=1;
+ BAIDUID=1DFBE488DFD92A8CEE6D6DE3356A0477:FG=1;
+  PSTM=1513848750; BIDUPSID=86EBB9410EE81BAF60041C2C26ADD45B;
+  BDORZ=B490B5EBF6F3CD402E515D22BCDA1598; pgv_pvi=5846578176;
+  BD_HOME=0; H_PS_PSSID=1448_21105_17001_22160; BD_CK_SAM=1; PSINO=3;
+  shifen[59582711632_98017]=1515120617; BCLID=10290040352333046040;
+  BDSFRCVID=fL_sJeC629n_JGOAE9NrJdODJ2K-uKbTH6aofFj7jBEqt1eXqnnXEG0PqM8g0Kub_9YlogKKL2OTHmrP; "
+</pre>
+
+
+<h2 id="删除cookie"><a href="#删除cookie" class="headerlink" title="删除cookie"></a>删除cookie</h2><p>设置过期时间为以前的时间</p>
+<p>完整实例：</p>
+<pre>
+function setCookie(cname,cvalue,exdays)
+{
+  var d = new Date();
+  d.setTime(d.getTime()+(exdays*24*60*60*1000));
+  var expires = "expires="+d.toGMTString();
+  document.cookie = cname + "=" + cvalue + "; " + expires;
+}
+
+function getCookie(cname)
+{
+  var name = cname + "=";
+  var ca = document.cookie.split(';');
+  for(var i=0; i<ca.length; i++)="" {="" var="" c="ca[i].trim();" if="" (c.indexof(name)="=0)" return="" c.substring(name.length,c.length);="" }="" "";="" function="" checkcookie()="" user="getCookie("username");" (user!="" )="" alert("welcome="" again="" "="" +="" user);="" else="" enter="" your="" name:","");="" &&="" user!="null)" setcookie("username",user,365);="" <="" pre="">
+
+
+<p>chorme 浏览器的cookies</p>
+<p>name   名称<br>value  值<br>domain 域<br>path<br>expires 过期时间<br>size<br>http<br>secure<br>samesite</p>
+</ca.length;></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/26/summarise/" data-id="cjc1oxbdi0009r8cb33uzhe0a" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/05/cookie/" data-id="cjc1oxbco0000r8cb8r2dsn5b" class="article-share-link">Share</a>
       
       
     </footer>
@@ -104,19 +150,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2018/01/03/scrollsolution/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          滚动相关
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/12/20/tablist/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/01/03/scrollsolution/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">tablist</div>
+      <div class="article-nav-title">滚动相关</div>
     </a>
   
 </nav>
